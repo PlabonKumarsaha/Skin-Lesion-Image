@@ -11,6 +11,7 @@ Last updated: 2026-10-15.
 | Workflow | **Code first**, then use the benchmark results to improve the proposal. |
 | First experiments | Start with **CNN / ViT baselines**, before any VLM. |
 | Dataset version | Use the **latest** HAM10000 release. |
+| Models | **Open, free models only. No commercial/closed APIs** (GPT, Gemini, Claude): this is an academic paper. (2026-10-16) |
 | Author email | pkumarsaha71@gmail.com |
 
 ### Original proposal (your draft, summarised)
@@ -40,6 +41,10 @@ Last updated: 2026-10-15.
 | 2026-10-15 | Download HAM10000 from Harvard Dataverse, not Kaggle | Only the Dataverse copy has the `dataset` (site) column |
 | 2026-10-15 | Split by `lesion_id`, never by image | HAM10000 has several images per lesion; image-level splits leak |
 | 2026-10-15 | Train on your **Mac** (M4, MPS) | Your choice; fine for the baselines |
+| 2026-10-15 | Full permission to proceed with the task list; ask only when something is ambiguous | Your instruction |
+| 2026-10-16 | Get SkinCon's DDI annotations (not Fitzpatrick17k images) | Your choice: concept labels for the 656 DDI images we already have, for the skin-tone faithfulness test |
+| 2026-10-16 | Family D = open multimodal LLMs only; closed APIs dropped | Your instruction; also fully reproducible, no API cost |
+| 2026-10-15 | Baseline recipe: 224 px, fp32, AdamW, cosine with 1-epoch warmup, 20 epochs, batch 32, inverse-frequency weighted CE; select by val balanced accuracy. Models: convnext_tiny.fb_in22k_ft_in1k, efficientnet_b3.ra2_in1k, vit_base_patch16_224.augreg2_in21k_ft_in1k, DINOv2-B probe | Standard, comparable across models |
 | 2026-10-15 | Site-shift test design: train on site A, test on A-test and B-test | Both directions are scored on the same two test sets, so the gaps are directly comparable |
 
 ## 3. Verified facts
@@ -67,6 +72,42 @@ Last updated: 2026-10-15.
 - The cleanest site-shift pair is **rosendahl vs vidir_modern**, on nv/mel/bkl/bcc plus melanoma-vs-rest.
 - **9 lesions span more than one site.** Exclude them from the site-shift splits.
 
+### DDI (Stanford AIMI; received 2026-10-16)
+
+- **Files:** 656 clinical photos (PNG, ~230–460 px) + `ddi_metadata.csv` (`DDI_ID, DDI_file, skin_tone, malignant, disease`). Stored in `data/raw/ddi/`; zip MD5 in `MANIFEST.txt`.
+- **Skin tone groups:** FST I–II (12): 208 · III–IV (34): 241 · V–VI (56): 207.
+- **Labels:** 171 malignant / 485 benign; 78 disease labels.
+- **Only 21 melanomas** (7 melanoma, 7 acral lentiginous, 6 in situ, 1 nodular). That's too few for per-skin-tone melanoma metrics, so use **malignant vs benign** per FST group, as the original DDI paper does.
+- **Clinical photos, not dermoscopy.** This is a modality shift for HAM-trained models; report it separately.
+- **Terms:** non-commercial research; **no redistribution, no derivatives, don't share the download link.** The paper can release code and results only.
+
+### Derm7pt release_v0 (SFU; received 2026-10-16)
+
+- **Files:** 1,011 cases, each with a clinical and a dermoscopic image (2,013 images; none missing). `meta/meta.csv` plus official train/valid/test index files (413 / 203 / 395). Stored in `data/raw/derm7pt/`; MD5 in `MANIFEST.txt`.
+- **Diagnoses:** 20 labels; **252 melanomas** (all subtypes). Largest classes: Clark nevus 399, Reed/Spitz 79, SK 45, BCC 42.
+- **Concept ground truth for E2 (every case labelled):**
+  - pigment_network: absent / typical / atypical
+  - streaks: absent / regular / irregular
+  - pigmentation: absent / diffuse or localised, regular or irregular
+  - regression_structures: absent / blue / white / combinations
+  - dots_and_globules: absent / regular / irregular
+  - blue_whitish_veil: absent / present (195 present)
+  - vascular_structures: 8 types
+  - Also: `seven_point_score`, diagnostic difficulty (low/medium/high), sex, location, management.
+- **Licence:** CC BY-NC-ND 4.0; no redistribution. Images © Dr. Giuseppe Argenziano. Cite Kawahara et al., *IEEE JBHI* 2019.
+- **Prepared (`splits/derm7pt.csv`):** official split kept. Diagnoses mapped to HAM classes (nv 575, mel 252, bkl 69, bcc 42, vasc 29, df 20; 24 miscellaneous/melanosis have no equivalent). 7-point checklist flags: atypical network 230, blue-white veil 195, atypical vascular 117, irregular streaks 251, irregular pigmentation 305, irregular dots/globules 448, regression 253.
+- **Contamination note:** the images come from the Argenziano dermoscopy atlas, which may also appear in PubMed/atlas-derived pretraining corpora (e.g. Derm1M, MONET). Include in the E3 audit.
+
+### SkinCon (received 2026-10-16)
+
+- **Fitzpatrick17k annotations:** `data/raw/skincon/skincon_fitzpatrick17k.csv`, copied from `~/Downloads/image.csv` (identical to the official file); MD5 in `MANIFEST.txt`.
+- **Contents:** 3,690 Fitzpatrick17k images (MD5-hash filenames), 48 binary *clinical-morphology* concepts (Erythema 2,139, Plaque 1,967, Papule 1,170, Brown 760, Scale 686, …). 460 rows are flagged "Do not consider", leaving 3,230 usable. 26 concepts have fewer than 50 positives.
+- **No images:** these labels point to Fitzpatrick17k photos that must be fetched from atlas URLs.
+- **DDI annotations** (`skincon_ddi.csv`, downloaded from the SkinCon site 2026-10-16): all 656 DDI images matched; 636 usable after 20 "do not consider" rows. Joined table: `splits/ddi_concepts.csv`.
+- **Only 8 concepts have ≥30 positives on DDI** (Papule 410, Brown 363, Erythema 235, Plaque 168, Scale 103, Dome-shaped 67, Crust 53, Nodule 46). Use these 8 for E4.
+- **Early signal for H4:** Erythema is labelled far less on FST V–VI (40) than I–II (105). This is a known visibility problem on darker skin and makes erythema a key concept for the faithfulness-by-skin-tone test.
+- **Relevance:** these concepts are clinical (papule, plaque), not dermoscopic. Derm7pt stays the core of E2. SkinCon-DDI would let us test whether faithfulness drops on darker skin (H4).
+
 ### Splits (seed 42, lesion-level, leakage-checked)
 
 - `splits/random.csv`: 7-class. Lesion counts: train 5,229 / val 1,120 / test 1,121 (images 6,981 / 1,532 / 1,502).
@@ -89,6 +130,18 @@ The Queensland test set has only **54 melanoma images**, so expect wide CIs (rou
 - Skin-R1 (arXiv 2511.14900) and ConVLM (engrXiv).
 - **Gap:** no study found that combines concept-level faithfulness, controlled site shift and ISIC contamination auditing.
 
+### Open model access (checked 2026-10-16)
+
+| Model | Family | Source | Licence | Access |
+|---|---|---|---|---|
+| BiomedCLIP | C | HF `microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224` | MIT | Open; loads with open_clip (tested) |
+| MONET | B | HF `suinleelab/monet` (safetensors) | see repo | Open |
+| PanDerm-L / PanDerm-B | B | Google Drive (official repo links); needs the authors' code | CC BY-NC-ND 4.0 | Open download |
+| DermLIP ViT-B/16, DermLIP-PanDerm | B | HF `redlessone/...` | CC BY-NC 4.0 | **Gated (auto-approve)**: needs your free HF login + accepting the terms |
+| Qwen2.5-VL-7B | D | HF `mlx-community/Qwen2.5-VL-7B-Instruct-4bit` (MLX, fast on Mac) | Apache-2.0 | Open |
+| LLaVA-Med v1.5 | D | HF `microsoft/llava-med-v1.5-mistral-7b` | Apache-2.0 | Open |
+| MedGemma-4B | D | HF `google/medgemma-4b-it` | Health AI Developer Foundations terms | **Gated (auto-approve)**: needs your HF login |
+
 ## 4. Environment
 
 - **Machine:** Apple M4 (10-core GPU), 24 GB RAM, ~769 GB free, macOS (Darwin 25.6).
@@ -99,5 +152,5 @@ The Queensland test set has only **54 melanoma images**, so expect wide CIs (rou
 ## 5. Open questions
 
 - [ ] Verify the Australian melanoma incidence figure (AIHW).
-- [ ] Access requests for Derm7pt and DDI (approval takes days).
-- [ ] Budget for closed-model API runs (GPT / Gemini / Claude)?
+- [x] DDI received (2026-10-16).
+- [x] Derm7pt received (2026-10-16).

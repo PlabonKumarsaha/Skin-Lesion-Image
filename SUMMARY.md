@@ -1,6 +1,6 @@
 # Project Summary
 
-**Status (2026-10-15):** Phase 0 nearly done. HAM10000 is verified, the Mac environment is ready (MPS) and the lesion-level splits are built. Next: evaluation module + training script, then the CNN/ViT baselines.
+**Status (2026-10-16, 02:20):** Phase 1 running, 14/30 jobs done, ETA ~14:30 (the Mac slept 2.3 h overnight with the lid closed). Derm7pt and DDI downloaded and verified; nothing waiting on you. Remote Control is on.
 
 ## What we're doing
 
@@ -40,3 +40,11 @@ Estimated time: about 2.5–3 months part-time to a submittable draft.
 | 2026-10-15 | Decided to start with CNN/ViT baselines. |
 | 2026-10-15 | Downloaded HAM10000 v4.0 (checksums OK, 10,015 images). Found Queensland = 22.6% (not ~50%) and strong site–label confounding. Proposed rosendahl vs vidir_modern as the site-shift pair. |
 | 2026-10-15 | Chose Mac (M4) for training; set up `.venv` (torch 2.14.1, MPS OK). Built `random.csv` and `site_shift.csv` splits (leakage-checked). |
+| 2026-10-15 | Wrote the eval module, training, probe and runner scripts. Timing: ConvNeXt-T 265 s/epoch. Pilot DINOv2 probe (trained on Queensland): melanoma AUROC 0.79 in-site vs 0.69 cross-site, so a site gap is visible. Launched all Phase 1 runs. Proposal doc updated with the HAM site facts. |
+| 2026-10-15 15:13 | First ConvNeXt-T run (trained on Queensland, 18 min): melanoma AUROC 0.869 in-site vs 0.772 on Vienna (gap +0.097). The DINOv2 probe trained on Vienna is *better* on Queensland (0.814 vs 0.778), so the gap is asymmetric; check whether it comes from the different negative-class mix. |
+| 2026-10-15 15:54 | ConvNeXt-T site shift is symmetric: Qld→Vienna gap +0.097, Vienna→Qld gap +0.089 (melanoma AUROC). At the val-chosen threshold, Vienna-trained sensitivity drops 0.41 → 0.24 on Queensland. The probe's reverse gap (−0.036) looks probe-specific. TODO: paired bootstrap of the gap on a shared test set. 5/30 jobs done. |
+| 2026-10-15 22:04 | Seed 0 almost done (11/30). Site gap of +0.08 to +0.10 melanoma AUROC in 5/6 fine-tuned runs (ConvNeXt, ViT, EffNet; both directions). Cross-site AUROC converges to 0.75–0.78 whatever the architecture. ECE rises cross-site for every model. Exception: EffNet-B3 trained on Queensland is weak in-site (0.775); check seeds 1–2. Random split: EffNet-B3 0.907, ConvNeXt-T 0.903, DINOv2 probe 0.846 melanoma AUROC. |
+| 2026-10-15 22:15 | Seed 0 complete (12/30). ViT-B/16 random-split melanoma AUROC 0.912 (best). Paired bootstrap on the same test images: the melanoma AUROC gap is significant for ConvNeXt-T and ViT-B/16 on both sites (≈+0.09, CIs exclude 0) and for EffNet-B3 on Vienna (+0.117). Not significant: EffNet on Queensland, DINOv2 probe on Queensland. |
+| 2026-10-16 | DDI received and extracted (656 images; FST groups 208/241/207; 171 malignant, only 21 melanomas, so use malignant-vs-benign for fairness). Derm7pt still pending. |
+| 2026-10-16 | Derm7pt received: 1,011 cases (clinical + dermoscopic), 252 melanomas, all 7 checklist concepts labelled for every case. Ground truth for the faithfulness experiment (E2) is ready. |
+| 2026-10-16 | SkinCon received (Fitzpatrick17k file from you; DDI file downloaded from the SkinCon site). DDI concepts joined: 636 images, 8 concepts with ≥30 positives. Erythema labelled 105× on FST I–II vs 40× on V–VI, an early H4 signal. All Phase 2 data now in hand. |

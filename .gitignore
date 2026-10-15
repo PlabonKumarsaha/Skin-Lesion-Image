@@ -1,6 +1,24 @@
+# environment
 .venv/
-data/raw/
-results/checkpoints/
 __pycache__/
+*.pyc
+.DS_Store
+
+# data: licensed datasets are never committed (see KNOWLEDGE.md for sources)
+data/
 *.zip
-data/processed/
+
+# derived from no-redistribution / no-derivatives datasets (DDI, Derm7pt): regenerate with scripts/prepare_concept_sets.py
+splits/ddi.csv
+splits/ddi_concepts.csv
+splits/derm7pt.csv
+
+# large or regenerable outputs
+results/checkpoints/
+results/features/
+results/runs_foundation/*_limit*/
+results/logs/
+
+# per-image outputs on DDI / Derm7pt carry their labels (no redistribution): keep local
+results/**/*ddi*.csv
+results/**/*derm7pt*.csv
