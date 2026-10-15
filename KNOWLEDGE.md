@@ -11,8 +11,8 @@ Last updated: 2026-10-15.
 | Workflow | **Code first**, then use the benchmark results to improve the proposal. |
 | First experiments | Start with **CNN / ViT baselines**, before any VLM. |
 | Dataset version | Use the **latest** HAM10000 release. |
+| Git | Commit and push to GitHub when a phase's code is done. Repo `PlabonKumarsaha/Skin-Lesion-Image` (public). (2026-10-16) |
 | Models | **Open, free models only. No commercial/closed APIs** (GPT, Gemini, Claude): this is an academic paper. (2026-10-16) |
-| Author email | pkumarsaha71@gmail.com |
 
 ### Original proposal (your draft, summarised)
 
