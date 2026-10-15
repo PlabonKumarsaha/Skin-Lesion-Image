@@ -1,0 +1,6 @@
+.venv/
+data/raw/
+results/checkpoints/
+__pycache__/
+*.zip
+data/processed/
