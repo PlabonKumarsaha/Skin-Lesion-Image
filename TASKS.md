@@ -26,11 +26,11 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-15 22:27. The 
 - [x] Training script ([experiments/train_supervised.py](experiments/train_supervised.py)): timm, weighted cross-entropy, AdamW + cosine, 20 epochs, 224 px, best epoch by val balanced accuracy
 - [x] DINOv2 linear-probe script ([experiments/linear_probe.py](experiments/linear_probe.py))
 - [x] Timing test: ConvNeXt-T 265 s/epoch on the full train set (M4, fp32; AMP gave <20%, not used)
-- [ ] **Running:** resumable runner ([experiments/run_phase1.py](experiments/run_phase1.py)), started 2026-10-15 14:45. **12/30 jobs done, 0 failures**; ETA ~noon 2026-10-16. Log: `results/logs/phase1.log`
+- [ ] **Running:** resumable runner ([experiments/run_phase1.py](experiments/run_phase1.py)), started 2026-10-15 14:45. **21/30 jobs done, 0 failures** (08:02, 2026-10-16); ETA ~15:45. Log: `results/logs/phase1.log`
 - [x] DINOv2-B linear probe × 3 splits (deterministic, so one run each)
 - [x] Seed 0 of every model × 3 splits (done 22:15)
-- [ ] Seed 1 of every model × 3 splits (running)
-- [ ] Seed 2 of every model × 3 splits
+- [x] Seed 1 of every model × 3 splits (done 07:56)
+- [ ] Seed 2 of every model × 3 splits (running)
 - [x] Summary script ([experiments/summarize.py](experiments/summarize.py)) → `results/phase1_summary.md`
 - [x] Paired bootstrap CI for the site gap ([experiments/site_gap.py](experiments/site_gap.py) → `results/site_gap.csv`)
 - [ ] Rerun `summarize.py` + `site_gap.py` on all 3 seeds
@@ -43,11 +43,17 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-15 22:27. The 
 - [x] Install open_clip, transformers, mlx-vlm (core package versions unchanged)
 - [x] Check access + licences for every open model (table in KNOWLEDGE.md)
 - [x] BiomedCLIP loads (open_clip, tested on CPU)
-- [ ] **(You)** Free Hugging Face login + accept terms for DermLIP and MedGemma (gated, auto-approved)
-- [ ] Shared CLIP-family script: zero-shot + linear probe on frozen features (BiomedCLIP, MONET, DermLIP ×2)
-- [ ] PanDerm-B/L: download the official checkpoints (Google Drive) + authors' model code → linear probe
-- [ ] Open VLM script with a fixed JSON output schema (diagnosis + 7-point features): Qwen2.5-VL-7B (MLX), MedGemma-4B, LLaVA-Med v1.5
-- [ ] Run all of Phase 1b once the GPU is free (~6–10 h)
+- [x] **(You)** Hugging Face login (`pkumarsaha71`) + access to DermLIP ×2 and MedGemma confirmed
+- [ ] **(You)** Revoke the HF token pasted in chat (browser login doesn't need it)
+- [x] DermLIP ViT-B/16 smoke test OK
+- [x] DermLIP-PanDerm loads via the Derm1M fork (2 local patches); smoke test OK
+- [x] Shared CLIP-family script ([experiments/foundation_eval.py](experiments/foundation_eval.py)): zero-shot + linear probe; BiomedCLIP, MONET, DermLIP ViT-B/16 smoke-tested
+- [x] PanDerm-L: official checkpoint (1.3 GB, loaded weights-only) + authors' model code; linear probe smoke test OK (vision-only, so no zero-shot)
+- [x] Open VLM script ([experiments/vlm_eval.py](experiments/vlm_eval.py)): Qwen2.5-VL-7B + MedGemma 1.5-4B (4-bit MLX)
+- [ ] LLaVA-Med v1.5: postponed (no MLX build; needs the legacy LLaVA codebase). Add only if time allows
+- [x] VLM prompt controls: `shuffled` variant (option order shuffled + "uncertain") and `yesno` variant (melanoma score = P(yes) from token log-probs)
+- [x] Phase 1b runner ([experiments/run_phase1b.py](experiments/run_phase1b.py)): waits for Phase 1, then foundation models → VLMs on Derm7pt → HAM/DDI
+- [ ] Run all of Phase 1b (~15 h of VLM inference; Derm7pt first)
 
 ## Phase 2: Faithfulness pilot
 

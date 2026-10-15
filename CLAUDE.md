@@ -13,3 +13,6 @@ Rules:
 - Split HAM10000 by `lesion_id`, never by image.
 - Raw data in `data/raw/` is read-only.
 - Run Python that reads downloaded data with `python3 -I`.
+- Use open, free models only. No commercial APIs (academic paper).
+- Git: commit and push to `origin main` (github.com/PlabonKumarsaha/Skin-Lesion-Image, **public**) when a phase's code is done.
+  Never commit `data/` or DDI/Derm7pt-derived files (their licences forbid redistribution); `.gitignore` handles this, so check `git diff --cached --name-only` before each commit.

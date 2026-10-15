@@ -22,3 +22,9 @@ results/logs/
 # per-image outputs on DDI / Derm7pt carry their labels (no redistribution): keep local
 results/**/*ddi*.csv
 results/**/*derm7pt*.csv
+
+# external code (cloned)
+third_party/
+weights/
+results/**/*ddi*.jsonl
+results/**/*derm7pt*.jsonl

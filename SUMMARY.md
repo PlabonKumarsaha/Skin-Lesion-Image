@@ -1,6 +1,6 @@
 # Project Summary
 
-**Status (2026-10-16, 02:20):** Phase 1 running, 14/30 jobs done, ETA ~14:30 (the Mac slept 2.3 h overnight with the lid closed). Derm7pt and DDI downloaded and verified; nothing waiting on you. Remote Control is on.
+**Status (2026-10-16, 08:02):** Phase 1: 21/30 jobs done (seeds 0–1 complete), ETA ~15:45. Phase 1b code written; waiting on your HF login for DermLIP/MedGemma. Phase 0–1 on GitHub.
 
 ## What we're doing
 
@@ -48,3 +48,6 @@ Estimated time: about 2.5–3 months part-time to a submittable draft.
 | 2026-10-16 | DDI received and extracted (656 images; FST groups 208/241/207; 171 malignant, only 21 melanomas, so use malignant-vs-benign for fairness). Derm7pt still pending. |
 | 2026-10-16 | Derm7pt received: 1,011 cases (clinical + dermoscopic), 252 melanomas, all 7 checklist concepts labelled for every case. Ground truth for the faithfulness experiment (E2) is ready. |
 | 2026-10-16 | SkinCon received (Fitzpatrick17k file from you; DDI file downloaded from the SkinCon site). DDI concepts joined: 636 images, 8 concepts with ≥30 positives. Erythema labelled 105× on FST I–II vs 40× on V–VI, an early H4 signal. All Phase 2 data now in hand. |
+| 2026-10-16 03:25 | Phase 1b code: foundation_eval.py (BiomedCLIP, MONET pass smoke tests) and vlm_eval.py (Qwen2.5-VL-7B via MLX, ~15–20 s/image while training runs). First 3 Derm7pt answers from Qwen are near-identical "everything suspicious" templates (melanoma, p=0.8, atypical network, blue areas…) whatever the image: an early H1 signal, but also a prompt-design risk to control for. Phase 0–1 pushed to GitHub. |
+| 2026-10-16 08:02 | Seeds 0–1 done. Site gap (paired, 2 seeds, melanoma AUROC): ConvNeXt +0.083 / +0.117, ViT +0.073 / +0.157 (Queensland / Vienna test images, all CIs exclude 0); EffNet +0.032 (n.s.) / +0.110. Random split: ConvNeXt 0.906, ViT 0.905, EffNet 0.894 melanoma AUROC. |
+| 2026-10-16 10:30 | Phase 1b code complete: 5 foundation models (BiomedCLIP, MONET, DermLIP ViT-B/16, DermLIP-PanDerm via the authors' fork, PanDerm-L via the authors' code) + 2 open VLMs (Qwen2.5-VL-7B, MedGemma 1.5-4B; 4-bit MLX). VLM controls added. Pilot (6 Derm7pt images): Qwen calls everything melanoma in JSON mode, even with shuffled options; MedGemma's JSON answers separate melanoma from nevi 6/6, but its yes/no answer is "no" for all, including melanomas. Strong format-dependence (self-consistency) signal for E2. Phase 1b runner queued to start after Phase 1. |

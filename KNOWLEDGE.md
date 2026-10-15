@@ -137,10 +137,10 @@ The Queensland test set has only **54 melanoma images**, so expect wide CIs (rou
 | BiomedCLIP | C | HF `microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224` | MIT | Open; loads with open_clip (tested) |
 | MONET | B | HF `suinleelab/monet` (safetensors) | see repo | Open |
 | PanDerm-L / PanDerm-B | B | Google Drive (official repo links); needs the authors' code | CC BY-NC-ND 4.0 | Open download |
-| DermLIP ViT-B/16, DermLIP-PanDerm | B | HF `redlessone/...` | CC BY-NC 4.0 | **Gated (auto-approve)**: needs your free HF login + accepting the terms |
+| DermLIP ViT-B/16, DermLIP-PanDerm | B | HF `redlessone/...` | CC BY-NC 4.0 | Gated: **access granted** 2026-10-16 (HF user `pkumarsaha71`). DermLIP-PanDerm needs the Derm1M fork of open_clip |
 | Qwen2.5-VL-7B | D | HF `mlx-community/Qwen2.5-VL-7B-Instruct-4bit` (MLX, fast on Mac) | Apache-2.0 | Open |
 | LLaVA-Med v1.5 | D | HF `microsoft/llava-med-v1.5-mistral-7b` | Apache-2.0 | Open |
-| MedGemma-4B | D | HF `google/medgemma-4b-it` | Health AI Developer Foundations terms | **Gated (auto-approve)**: needs your HF login |
+| MedGemma-4B | D | HF `google/medgemma-4b-it` | Health AI Developer Foundations terms | Gated: **access granted** 2026-10-16 |
 
 ## 4. Environment
 
@@ -148,6 +148,11 @@ The Queensland test set has only **54 melanoma images**, so expect wide CIs (rou
 - **Python env:** `.venv` (Python 3.12, via uv): torch 2.14.1 (MPS works), timm 1.0.30, scikit-learn 1.9.1, pandas 3.0.6. Exact versions in `requirements.lock.txt`.
 - **Data location:** `data/raw/ham10000/` (images/, metadata CSV, manifest with MD5s).
 - **Compute target:** Mac (MPS).
+
+- **DermLIP-PanDerm loading:** via the Derm1M fork in `third_party/Derm1M/src` (loaded only in its own process). Local patches: (1) skip the separate PanDerm init file, since the HF checkpoint has the full weights; (2) `tokenizer.py:441` uses `tokenizer(...)` because `batch_encode_plus` was removed in transformers 5. Also needs `setuptools<80` (pkg_resources).
+- **Contamination flag:** DermLIP-PanDerm zero-shot reaches 0.89 melanoma AUROC on the Derm7pt smoke set. Check whether Derm1M's "two public datasets" include Derm7pt or HAM10000 (E3).
+- **VLMs:** 4-bit MLX builds (`mlx-community/Qwen2.5-VL-7B-Instruct-4bit`, `mlx-community/medgemma-1.5-4b-it-4bit`). State the quantisation in the paper. ~15–20 s/image for JSON answers, ~2 s for yes/no (while training shares the GPU). LLaVA-Med postponed (no MLX build).
+- **Secrets:** HF login is stored in `~/.cache/huggingface/` (outside the repo). `.git/hooks/pre-commit` blocks commits containing token-like strings.
 
 ## 5. Open questions
 
