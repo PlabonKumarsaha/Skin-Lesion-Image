@@ -1,6 +1,6 @@
 # Project Summary
 
-**Status (2026-10-16, 08:02):** Phase 1: 21/30 jobs done (seeds 0–1 complete), ETA ~15:45. Phase 1b code written; waiting on your HF login for DermLIP/MedGemma. Phase 0–1 on GitHub.
+**Status (2026-10-16, 15:30):** Phase 1 complete (30/30 runs, site-shift gate passed). Phase 1b running: foundation models now, then open VLMs overnight. Phase 0–1b code on GitHub.
 
 ## What we're doing
 
@@ -51,3 +51,4 @@ Estimated time: about 2.5–3 months part-time to a submittable draft.
 | 2026-10-16 03:25 | Phase 1b code: foundation_eval.py (BiomedCLIP, MONET pass smoke tests) and vlm_eval.py (Qwen2.5-VL-7B via MLX, ~15–20 s/image while training runs). First 3 Derm7pt answers from Qwen are near-identical "everything suspicious" templates (melanoma, p=0.8, atypical network, blue areas…) whatever the image: an early H1 signal, but also a prompt-design risk to control for. Phase 0–1 pushed to GitHub. |
 | 2026-10-16 08:02 | Seeds 0–1 done. Site gap (paired, 2 seeds, melanoma AUROC): ConvNeXt +0.083 / +0.117, ViT +0.073 / +0.157 (Queensland / Vienna test images, all CIs exclude 0); EffNet +0.032 (n.s.) / +0.110. Random split: ConvNeXt 0.906, ViT 0.905, EffNet 0.894 melanoma AUROC. |
 | 2026-10-16 10:30 | Phase 1b code complete: 5 foundation models (BiomedCLIP, MONET, DermLIP ViT-B/16, DermLIP-PanDerm via the authors' fork, PanDerm-L via the authors' code) + 2 open VLMs (Qwen2.5-VL-7B, MedGemma 1.5-4B; 4-bit MLX). VLM controls added. Pilot (6 Derm7pt images): Qwen calls everything melanoma in JSON mode, even with shuffled options; MedGemma's JSON answers separate melanoma from nevi 6/6, but its yes/no answer is "no" for all, including melanomas. Strong format-dependence (self-consistency) signal for E2. Phase 1b runner queued to start after Phase 1. |
+| 2026-10-16 15:21 | **Phase 1 complete** (30/30, 0 failures). 3-seed random split (melanoma AUROC): ConvNeXt-T 0.903 ± 0.006, ViT-B/16 0.899 ± 0.012, EffNet-B3 0.887 ± 0.018, DINOv2 probe 0.846. Paired site gap: ConvNeXt +0.090 / +0.111, ViT +0.085 / +0.133, EffNet +0.042 (n.s.) / +0.119. Sensitivity at 95% specificity drops by up to 0.36 cross-site. Gate passed. |

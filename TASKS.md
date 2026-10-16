@@ -1,6 +1,6 @@
 # Task List
 
-Tick items as they're done (`[~]` = partly done). Updated 2026-10-15 22:27. The full plan is in the proposal doc (link in [SUMMARY.md](SUMMARY.md)).
+Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 15:30. The full plan is in the proposal doc (link in [SUMMARY.md](SUMMARY.md)).
 
 ## Phase 0: Data foundation
 
@@ -26,17 +26,18 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-15 22:27. The 
 - [x] Training script ([experiments/train_supervised.py](experiments/train_supervised.py)): timm, weighted cross-entropy, AdamW + cosine, 20 epochs, 224 px, best epoch by val balanced accuracy
 - [x] DINOv2 linear-probe script ([experiments/linear_probe.py](experiments/linear_probe.py))
 - [x] Timing test: ConvNeXt-T 265 s/epoch on the full train set (M4, fp32; AMP gave <20%, not used)
-- [ ] **Running:** resumable runner ([experiments/run_phase1.py](experiments/run_phase1.py)), started 2026-10-15 14:45. **21/30 jobs done, 0 failures** (08:02, 2026-10-16); ETA ~15:45. Log: `results/logs/phase1.log`
+- [x] Resumable runner ([experiments/run_phase1.py](experiments/run_phase1.py)): **30/30 jobs done, 0 failures** (finished 2026-10-16 15:21) Log: `results/logs/phase1.log`
 - [x] DINOv2-B linear probe × 3 splits (deterministic, so one run each)
 - [x] Seed 0 of every model × 3 splits (done 22:15)
 - [x] Seed 1 of every model × 3 splits (done 07:56)
-- [ ] Seed 2 of every model × 3 splits (running)
+- [x] Seed 2 of every model × 3 splits
 - [x] Summary script ([experiments/summarize.py](experiments/summarize.py)) → `results/phase1_summary.md`
 - [x] Paired bootstrap CI for the site gap ([experiments/site_gap.py](experiments/site_gap.py) → `results/site_gap.csv`)
-- [ ] Rerun `summarize.py` + `site_gap.py` on all 3 seeds
-- [ ] Check whether EfficientNet-B3 / DINOv2 are weak when trained on Queensland in all seeds (small train set, 1,362 images); if so, report it as a data-size limitation
-- [ ] Decide on 5-fold lesion-grouped CV for E1 (only if the 3-seed CIs are still wide)
-- [~] **Gate:** is the site gap non-trivial (ΔAUROC > 0.03, CI excludes 0)? **Seed 0: yes**, ≈ +0.09 for ConvNeXt-T and ViT-B/16 on both sites. Confirm with seeds 1–2, then update the proposal.
+- [x] Rerun `summarize.py` + `site_gap.py` on all 3 seeds → `results/phase1_summary.md`, `results/site_gap.csv`
+- [x] EfficientNet-B3 trained on Queensland: no significant gap on Queensland test images in 3 seeds (+0.042, CI −0.028 to 0.106). Report as a small-training-set limitation
+- [x] 5-fold CV for E1: not needed (3-seed paired CIs exclude 0 for 4/6 model×site pairs)
+- [x] **Gate passed:** 3-seed paired melanoma-AUROC gap: ConvNeXt +0.090 / +0.111, ViT +0.085 / +0.133, EffNet +0.042 (n.s.) / +0.119 (Queensland / Vienna test images)
+- [ ] Update the proposal doc with the Phase 1 results
 
 ## Phase 1b: Foundation models + open VLMs (open weights only)
 
@@ -53,7 +54,7 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-15 22:27. The 
 - [ ] LLaVA-Med v1.5: postponed (no MLX build; needs the legacy LLaVA codebase). Add only if time allows
 - [x] VLM prompt controls: `shuffled` variant (option order shuffled + "uncertain") and `yesno` variant (melanoma score = P(yes) from token log-probs)
 - [x] Phase 1b runner ([experiments/run_phase1b.py](experiments/run_phase1b.py)): waits for Phase 1, then foundation models → VLMs on Derm7pt → HAM/DDI
-- [ ] Run all of Phase 1b (~15 h of VLM inference; Derm7pt first)
+- [ ] **Running:** Phase 1b (started 15:22, 2026-10-16; foundation models ~1 h, then ~15 h of VLM inference, Derm7pt first). Log: `results/logs/phase1b.log`
 
 ## Phase 2: Faithfulness pilot
 

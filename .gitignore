@@ -28,3 +28,6 @@ third_party/
 weights/
 results/**/*ddi*.jsonl
 results/**/*derm7pt*.jsonl
+
+# unpublished proposal drafts (keep private until submission)
+docs/*.docx
