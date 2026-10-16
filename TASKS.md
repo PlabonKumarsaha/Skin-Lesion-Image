@@ -37,7 +37,7 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 15:30. The 
 - [x] EfficientNet-B3 trained on Queensland: no significant gap on Queensland test images in 3 seeds (+0.042, CI −0.028 to 0.106). Report as a small-training-set limitation
 - [x] 5-fold CV for E1: not needed (3-seed paired CIs exclude 0 for 4/6 model×site pairs)
 - [x] **Gate passed:** 3-seed paired melanoma-AUROC gap: ConvNeXt +0.090 / +0.111, ViT +0.085 / +0.133, EffNet +0.042 (n.s.) / +0.119 (Queensland / Vienna test images)
-- [ ] Update the proposal doc with the Phase 1 results
+- [x] Update the proposal doc with the Phase 1 results (new "Preliminary results" section)
 
 ## Phase 1b: Foundation models + open VLMs (open weights only)
 
@@ -54,6 +54,7 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 15:30. The 
 - [ ] LLaVA-Med v1.5: postponed (no MLX build; needs the legacy LLaVA codebase). Add only if time allows
 - [x] VLM prompt controls: `shuffled` variant (option order shuffled + "uncertain") and `yesno` variant (melanoma score = P(yes) from token log-probs)
 - [x] Phase 1b runner ([experiments/run_phase1b.py](experiments/run_phase1b.py)): waits for Phase 1, then foundation models → VLMs on Derm7pt → HAM/DDI
+- [x] Foundation models: 5/5 done (zero-shot + probes; probe predictions saved; paired site gap computed)
 - [ ] **Running:** Phase 1b (started 15:22, 2026-10-16; foundation models ~1 h, then ~15 h of VLM inference, Derm7pt first). Log: `results/logs/phase1b.log`
 
 ## Phase 2: Faithfulness pilot

@@ -130,6 +130,9 @@ def main():
             tests.append("derm7pt/test")  # cross-dataset: HAM-trained probe on Derm7pt dermoscopy
         for k in tests:
             p = proba(clf, feats[k], len(classes))
+            if k.startswith(task):  # HAM site/random test sets: save for the paired site-gap analysis
+                pd.DataFrame(p, columns=[f"p_{c}" for c in classes]).assign(
+                    y=sets[k][1], lesion_id=sets[k][2]).to_csv(out / f"probe_{task}__{k.split('/')[1]}.csv", index=False)
             results["probe"][f"{task}->{k}"] = evaluate(sets[k][1], p, sets[k][2], classes, thr) | {"C": {"value": best, "ci_low": best, "ci_high": best}}
 
     json.dump({"model": a.model, "logit_scale": fm.logit_scale, "limit": a.limit, "results": results},

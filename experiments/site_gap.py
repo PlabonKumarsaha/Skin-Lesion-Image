@@ -22,9 +22,16 @@ RUNS = ROOT / "results/runs"
 N_BOOT = 2000
 
 
+FOUNDATION = ROOT / "results/runs_foundation"
+
+
 def load(train_site, model, seed, test_site):
+    """Test-set predictions: fine-tuned runs (results/runs) or frozen-feature probes (results/runs_foundation, seed 0)."""
     f = RUNS / f"site_{train_site}" / model / f"seed{seed}" / f"pred_test_{test_site}.csv"
-    return pd.read_csv(f) if f.exists() else None
+    if f.exists():
+        return pd.read_csv(f)
+    f = FOUNDATION / model / f"probe_site_{train_site}__test_{test_site}.csv"
+    return pd.read_csv(f) if f.exists() and seed == 0 else None
 
 
 def stats(pred, idx):
@@ -37,7 +44,8 @@ def stats(pred, idx):
 def main():
     names = ["mel_auroc", "mel_sens_at_spec95", "balanced_acc"]
     rows = []
-    models = sorted({p.parent.parent.name for p in RUNS.glob("site_*/*/seed*/pred_test_*.csv")})
+    models = sorted({p.parent.parent.name for p in RUNS.glob("site_*/*/seed*/pred_test_*.csv")}
+                    | {p.parent.name for p in FOUNDATION.glob("*/probe_site_*.csv") if "_limit" not in p.parent.name})
     for model in models:
         for test in SITES:
             other = [s for s in SITES if s != test][0]
@@ -46,7 +54,7 @@ def main():
             if not pairs:
                 continue
             ref = pairs[0][0]
-            assert all((a.image_id.values == ref.image_id.values).all() and (b.image_id.values == ref.image_id.values).all()
+            assert all((a.lesion_id.values == ref.lesion_id.values).all() and (b.lesion_id.values == ref.lesion_id.values).all()
                        for a, b in pairs)
             uniq, inv = np.unique(ref.lesion_id.values, return_inverse=True)
             members = [np.flatnonzero(inv == g) for g in range(len(uniq))]
