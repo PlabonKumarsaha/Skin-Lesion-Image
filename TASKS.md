@@ -61,9 +61,12 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 15:30. The 
 
 - [x] Download Derm7pt (2026-10-16)
 - [x] Analysis-ready tables + 400 px caches ([scripts/prepare_concept_sets.py](scripts/prepare_concept_sets.py)) → `splits/derm7pt.csv`, `splits/ddi.csv`
-- [ ] Concept synonym map (free text → 7-point criteria)
-- [ ] Concept precision/recall for the open VLMs (Qwen2.5-VL-7B, MedGemma-4B, LLaVA-Med)
-- [ ] **Gate:** is there a clear gap between accuracy and faithfulness?
+- [x] Concept mapping: not needed for the pilot, since the JSON schema uses Derm7pt's own vocabulary ([experiments/faithfulness.py](experiments/faithfulness.py)). Free-text rationales still to be scored later
+- [x] Concept precision/recall, self-consistency, cross-format agreement and templating on Derm7pt test (395 cases) for Qwen2.5-VL-7B + MedGemma 1.5 → `results/faithfulness_derm7pt.csv`
+- [x] **Gate passed:** self-consistency 0.89–1.00 but concept F1 0.39–0.47 ("consistent but unfaithful"); Qwen is templated (3.8% distinct answers, AUROC 0.51)
+- [ ] Baselines for E2: prevalence ("always cite") and MONET/DermLIP concept scores on the same 7 criteria
+- [ ] Bootstrap CIs for the faithfulness metrics
+- [ ] Counterfactual test (mask the cited region, re-query)
 
 ## Phase 3: Full runs
 
