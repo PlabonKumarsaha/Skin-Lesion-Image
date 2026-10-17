@@ -92,7 +92,12 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 22:32. The 
 
 ## Phase 4: Write-up
 
-- [ ] Lock results; turn the proposal into the paper's Introduction and Methods
-- [ ] Figures 1–5; CLAIM / TRIPOD+AI checklist
+- [x] Manuscript format: Word (.docx), target Computers in Biology and Medicine
+- [x] Figures 1–4 from results files ([experiments/make_figures.py](experiments/make_figures.py)) + `paper/numbers.json` (every cited number)
+- [x] Full first draft: `paper/manuscript.md` → `paper/manuscript.docx` ([paper/build_docx.py](paper/build_docx.py)); ~5,000 words incl. references, 4 tables, 4 figures, highlights. Kept local (not in the public repo)
+- [ ] **(You)** Author names, affiliations, competing interests, acknowledgements
+- [ ] Verify every reference against the original (marked in the draft); confirm the AIHW incidence figure
+- [ ] Update after the Derm1M contamination check (PAD-UFES-20 zero-shot caveat)
+- [ ] CLAIM / TRIPOD+AI checklist (supplementary)
 - [ ] Release code, splits, prompts
 - [ ] Submit (first target: Computers in Biology and Medicine or IEEE JBHI)

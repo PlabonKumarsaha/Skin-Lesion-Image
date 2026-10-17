@@ -12,6 +12,8 @@ Last updated: 2026-10-15.
 | First experiments | Start with **CNN / ViT baselines**, before any VLM. |
 | Dataset version | Use the **latest** HAM10000 release. |
 | Git | Commit and push to GitHub after **each stage** (2026-10-17), not only each phase. Repo `PlabonKumarsaha/Skin-Lesion-Image` (public). (2026-10-16) |
+| Manuscript privacy | Draft text (`paper/manuscript.md`, `.docx`) kept out of the public repo until submission; scripts, figures and aggregate numbers are committed. (2026-10-17, my default; change if you want it public) |
+| Manuscript | **Word (.docx)**, first target **Computers in Biology and Medicine** (Elsevier; ~8,000 words; numbered references). (2026-10-17) |
 | Models | **Open, free models only. No commercial/closed APIs** (GPT, Gemini, Claude): this is an academic paper. (2026-10-16) |
 
 ### Original proposal (your draft, summarised)

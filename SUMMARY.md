@@ -1,6 +1,6 @@
 # Project Summary
 
-**Status (2026-10-17, 12:35):** Phases 1 and 1b complete. E2 pilot, E3 part 1 and E4 part 1 done. External tests (BCN20000, PAD-UFES-20) running. Waiting on you: Derm1M dataset access.
+**Status (2026-10-17, 22:30):** All experiments done except the Derm1M contamination search (needs your HF access). First full manuscript draft written (Word, CIBM format), kept local. Next: your author details, reference verification, Derm1M check.
 
 ## What we're doing
 
@@ -62,3 +62,4 @@ Estimated time: about 2.5–3 months part-time to a submittable draft.
 | 2026-10-17 14:00 | **External tests done.** BCN20000 (new hospital, dermoscopy), melanoma AUROC: fine-tuned CNN/ViTs 0.75–0.79 (−0.12 to −0.13 vs HAM); at the HAM threshold, sensitivity only 19–40%. DermLIP probes 0.82 (−0.03 to −0.07) and DermLIP-PanDerm zero-shot 0.825: language-aligned derm models transfer best. PAD-UFES-20 (52 melanomas): fine-tuned malignant AUROC 0.72–0.75; DermLIP-PanDerm zero-shot 0.97, flagged for contamination. |
 | 2026-10-17 15:00 | E4 complete. Concept detection does NOT drop on Fitzpatrick V–VI (image-text models, SkinCon-DDI), so H4 is unsupported; the dark-skin drop is in diagnosis. Subgroups: age <40 hardest (HAM 0.78, BCN 0.70); palms/soles hardest site (BCN 0.654); sex gap ≤ 0.04. External checks: no BCN/PAD↔HAM duplicates; SCC exclusion changes AUROC ≤ 0.003. Blurred-image control for the VLMs running. |
 | 2026-10-17 16:15 | **E2 controls complete (blurred-image test).** Qwen2.5-VL: after blurring away all lesion structure, 79% of cited features and 93% of diagnoses unchanged (says melanoma 96% vs 95%), direct evidence its explanations are not read from the image; its yes/no AUROC barely moves (0.671→0.648), so it relies on colour/size cues. MedGemma's diagnosis responds to the image (AUROC 0.706→0.517) but 62% of its features stay the same. |
+| 2026-10-17 22:30 | **First manuscript draft** (`paper/manuscript.docx`, CIBM format): abstract, highlights, intro, related work, methods, 4 result sections, discussion, limitations, conclusions; 4 tables, 4 figures generated from results; 32 references marked for verification. Draft kept out of the public repo. |

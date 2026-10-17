@@ -1,0 +1,2048 @@
+{
+ "benchmark": {
+  "convnext_tiny": {
+   "mel_auroc": [
+    0.9031988457541846,
+    0.005930759092405781
+   ],
+   "mel_sens_at_spec95": [
+    0.5449101796407185,
+    0.015842822221943612
+   ],
+   "balanced_acc": [
+    0.7789481925337761,
+    0.019780634019097954
+   ],
+   "macro_f1": [
+    0.7036200870585763,
+    0.03854276741220386
+   ],
+   "ece": [
+    0.08937554216178534,
+    0.022121348289314675
+   ]
+  },
+  "vit_base": {
+   "mel_auroc": [
+    0.8992830817765217,
+    0.012191397424587015
+   ],
+   "mel_sens_at_spec95": [
+    0.5149700598802395,
+    0.04318025479597592
+   ],
+   "balanced_acc": [
+    0.7325829466571837,
+    0.005012364914996309
+   ],
+   "macro_f1": [
+    0.6739203224964211,
+    0.04036573121660372
+   ],
+   "ece": [
+    0.10756372703719656,
+    0.015216564919074723
+   ]
+  },
+  "efficientnet_b3": {
+   "mel_auroc": [
+    0.887410198329932,
+    0.017537790496734127
+   ],
+   "mel_sens_at_spec95": [
+    0.4910179640718562,
+    0.08297249377575458
+   ],
+   "balanced_acc": [
+    0.7308253754531343,
+    0.012370694246113218
+   ],
+   "macro_f1": [
+    0.6595303493870232,
+    0.053450189830557195
+   ],
+   "ece": [
+    0.10494085339456467,
+    0.018715069110390416
+   ]
+  },
+  "dinov2_probe": {
+   "mel_auroc": [
+    0.8459036982215346,
+    0.0
+   ],
+   "mel_sens_at_spec95": [
+    0.38323353293413176,
+    0.0
+   ],
+   "balanced_acc": [
+    0.6798350683920203,
+    0.0
+   ],
+   "macro_f1": [
+    0.6183294500491233,
+    0.0
+   ],
+   "ece": [
+    0.0320629886637991,
+    0.0
+   ]
+  },
+  "panderm_l": {
+   "mel_auroc": [
+    0.8859270223597748,
+    0.0
+   ],
+   "mel_sens_at_spec95": [
+    0.47305389221556887,
+    0.0
+   ],
+   "balanced_acc": [
+    0.749618731011662,
+    0.0
+   ],
+   "macro_f1": [
+    0.6463152262338033,
+    0.0
+   ],
+   "ece": [
+    0.03183002002070969,
+    0.0
+   ]
+  },
+  "monet": {
+   "mel_auroc": [
+    0.8882818632398125,
+    0.0
+   ],
+   "mel_sens_at_spec95": [
+    0.49101796407185627,
+    0.0
+   ],
+   "balanced_acc": [
+    0.730108244089217,
+    0.0
+   ],
+   "macro_f1": [
+    0.63844025214994,
+    0.0
+   ],
+   "ece": [
+    0.028076235745623023,
+    0.0
+   ]
+  },
+  "dermlip_vitb16": {
+   "mel_auroc": [
+    0.8866357173293862,
+    0.0
+   ],
+   "mel_sens_at_spec95": [
+    0.49101796407185627,
+    0.0
+   ],
+   "balanced_acc": [
+    0.7470984131217858,
+    0.0
+   ],
+   "macro_f1": [
+    0.6574099837562234,
+    0.0
+   ],
+   "ece": [
+    0.029896160614950835,
+    0.0
+   ]
+  },
+  "dermlip_panderm": {
+   "mel_auroc": [
+    0.8535558097288568,
+    0.0
+   ],
+   "mel_sens_at_spec95": [
+    0.4251497005988024,
+    0.0
+   ],
+   "balanced_acc": [
+    0.7373217039859666,
+    0.0
+   ],
+   "macro_f1": [
+    0.642938704002571,
+    0.0
+   ],
+   "ece": [
+    0.03354589443668704,
+    0.0
+   ]
+  },
+  "biomedclip": {
+   "mel_auroc": [
+    0.8265850321828252,
+    0.0
+   ],
+   "mel_sens_at_spec95": [
+    0.3413173652694611,
+    0.0
+   ],
+   "balanced_acc": [
+    0.6093705308949803,
+    0.0
+   ],
+   "macro_f1": [
+    0.5104816221736537,
+    0.0
+   ],
+   "ece": [
+    0.028512612262991233,
+    0.0
+   ]
+  }
+ },
+ "site_gap": {
+  "biomedclip|rosendahl": [
+   0.0579006954552805,
+   -0.0261216922448286,
+   0.1500312863927153,
+   1
+  ],
+  "biomedclip|vidir_modern": [
+   0.0885309343117053,
+   0.0146697158767994,
+   0.1598733923326769,
+   1
+  ],
+  "convnext_tiny|rosendahl": [
+   0.0901935414308049,
+   0.0252278131647239,
+   0.1627159303492958,
+   3
+  ],
+  "convnext_tiny|vidir_modern": [
+   0.111306562128294,
+   0.055110875455328,
+   0.1683309204807971,
+   3
+  ],
+  "dermlip_panderm|rosendahl": [
+   -0.0153647096878537,
+   -0.0609787308295717,
+   0.0318558024459463,
+   1
+  ],
+  "dermlip_panderm|vidir_modern": [
+   0.0612655174146857,
+   0.0208816197933894,
+   0.1032381336577079,
+   1
+  ],
+  "dermlip_vitb16|rosendahl": [
+   0.0104318292091218,
+   -0.0375954053396583,
+   0.0614449110671936,
+   1
+  ],
+  "dermlip_vitb16|vidir_modern": [
+   0.0123134140825249,
+   -0.0570696357779426,
+   0.0723844002762161,
+   1
+  ],
+  "dinov2_probe|rosendahl": [
+   -0.027171276079573,
+   -0.0955750318611153,
+   0.0421567266784437,
+   1
+  ],
+  "dinov2_probe|vidir_modern": [
+   0.0876262753178871,
+   0.0006738098286917,
+   0.1765407927628132,
+   1
+  ],
+  "efficientnet_b3|rosendahl": [
+   0.0417812280985497,
+   -0.0281789912347368,
+   0.1059995553174845,
+   3
+  ],
+  "efficientnet_b3|vidir_modern": [
+   0.1188118811881187,
+   0.0597536509286575,
+   0.1761235062212705,
+   3
+  ],
+  "monet|rosendahl": [
+   0.0414038492641113,
+   -0.0098653194856739,
+   0.0977351547388781,
+   1
+  ],
+  "monet|vidir_modern": [
+   0.0963713122581292,
+   0.034499874643468,
+   0.1591769272954776,
+   1
+  ],
+  "panderm_l|rosendahl": [
+   0.0080866893093967,
+   -0.0537482442187122,
+   0.0684955356598115,
+   1
+  ],
+  "panderm_l|vidir_modern": [
+   0.1612805950645827,
+   0.0968256914101829,
+   0.225893167911988,
+   1
+  ],
+  "vit_base|rosendahl": [
+   0.0851528384279475,
+   0.0178172617899036,
+   0.1517749624790324,
+   3
+  ],
+  "vit_base|vidir_modern": [
+   0.1331524015345696,
+   0.0690094428855188,
+   0.1968480620545642,
+   3
+  ]
+ },
+ "external": {
+  "monet": {
+   "ham": 0.8882818632398125,
+   "bcn": 0.705986852767296,
+   "sens_hamthr": NaN,
+   "pad_malignant": NaN
+  },
+  "biomedclip": {
+   "ham": 0.8265850321828252,
+   "bcn": 0.7145064129918826,
+   "sens_hamthr": NaN,
+   "pad_malignant": NaN
+  },
+  "efficientnet_b3": {
+   "ham": 0.887410198329932,
+   "bcn": 0.7540631112761162,
+   "sens_hamthr": 0.23182825807957064,
+   "pad_malignant": 0.7251795849058801
+  },
+  "panderm_l": {
+   "ham": 0.8859270223597748,
+   "bcn": 0.7572020080456078,
+   "sens_hamthr": NaN,
+   "pad_malignant": NaN
+  },
+  "vit_base": {
+   "ham": 0.8992830817765217,
+   "bcn": 0.7788561274722031,
+   "sens_hamthr": 0.3597013183992533,
+   "pad_malignant": 0.7471129572791351
+  },
+  "convnext_tiny": {
+   "ham": 0.9031988457541846,
+   "bcn": 0.7869629432706461,
+   "sens_hamthr": 0.31513242328783103,
+   "pad_malignant": 0.7524865164161353
+  },
+  "dermlip_panderm": {
+   "ham": 0.8535558097288568,
+   "bcn": 0.8203032973566486,
+   "sens_hamthr": NaN,
+   "pad_malignant": NaN
+  },
+  "dermlip_vitb16": {
+   "ham": 0.8866357173293862,
+   "bcn": 0.8221441209046754,
+   "sens_hamthr": NaN,
+   "pad_malignant": NaN
+  }
+ },
+ "zero_shot": {
+  "biomedclip": {
+   "random/test": 0.6865549799277848,
+   "site_rosendahl/test_rosendahl": 0.5716480672812551,
+   "site_rosendahl/test_vidir_modern": 0.6532643112026939,
+   "site_vidir_modern/test_rosendahl": 0.5716480672812551,
+   "site_vidir_modern/test_vidir_modern": 0.6532643112026939,
+   "derm7pt/test": 0.6052066745136052,
+   "ddi/all": 0.6540061493941037,
+   "bcn20000/all": 0.7072247064408015,
+   "pad_ufes20/all": 0.8948674256609991
+  },
+  "monet": {
+   "random/test": 0.6970149588463522,
+   "site_rosendahl/test_rosendahl": 0.7667798803169982,
+   "site_rosendahl/test_vidir_modern": 0.7465698346484395,
+   "site_vidir_modern/test_rosendahl": 0.7667798803169982,
+   "site_vidir_modern/test_vidir_modern": 0.7465698346484395,
+   "derm7pt/test": 0.7219414249117219,
+   "ddi/all": 0.6036655211912944,
+   "bcn20000/all": 0.7323173364147659,
+   "pad_ufes20/all": 0.9302486705115721
+  },
+  "dermlip_vitb16": {
+   "random/test": 0.6801655116732827,
+   "site_rosendahl/test_rosendahl": 0.6924632055636423,
+   "site_rosendahl/test_vidir_modern": 0.7446097401618335,
+   "site_vidir_modern/test_rosendahl": 0.6924632055636423,
+   "site_vidir_modern/test_vidir_modern": 0.7446097401618335,
+   "derm7pt/test": 0.7478709409402478,
+   "ddi/all": 0.6883704105624887,
+   "bcn20000/all": 0.7738077588810948,
+   "pad_ufes20/all": 0.9377668339450228
+  },
+  "dermlip_panderm": {
+   "random/test": 0.7885487452062167,
+   "site_rosendahl/test_rosendahl": 0.799692705806243,
+   "site_rosendahl/test_vidir_modern": 0.8283158265065086,
+   "site_vidir_modern/test_rosendahl": 0.799692705806243,
+   "site_vidir_modern/test_vidir_modern": 0.8283158265065086,
+   "derm7pt/test": 0.8782801357058783,
+   "ddi/all": 0.725797311147284,
+   "bcn20000/all": 0.8248207862447916,
+   "pad_ufes20/all": 0.9722960826904351
+  }
+ },
+ "faithfulness": [
+  {
+   "model": "baseline:always_cite_all",
+   "variant": "-",
+   "n": 395,
+   "atypical_pigment_network_precision": 0.2354430379746835,
+   "atypical_pigment_network_recall": 1.0,
+   "atypical_pigment_network_f1": 0.3811475409836066,
+   "blue_whitish_veil_present_precision": 0.189873417721519,
+   "blue_whitish_veil_present_recall": 1.0,
+   "blue_whitish_veil_present_f1": 0.3191489361702127,
+   "atypical_vascular_precision": 0.1265822784810126,
+   "atypical_vascular_recall": 1.0,
+   "atypical_vascular_f1": 0.2247191011235955,
+   "irregular_streaks_precision": 0.2379746835443038,
+   "irregular_streaks_recall": 1.0,
+   "irregular_streaks_f1": 0.3844580777096114,
+   "irregular_pigmentation_precision": 0.3139240506329114,
+   "irregular_pigmentation_recall": 1.0,
+   "irregular_pigmentation_f1": 0.4778420038535646,
+   "irregular_dots_globules_precision": 0.4481012658227848,
+   "irregular_dots_globules_recall": 1.0,
+   "irregular_dots_globules_f1": 0.6188811188811189,
+   "regression_present_precision": 0.2683544303797468,
+   "regression_present_recall": 1.0,
+   "regression_present_f1": 0.4231536926147704,
+   "concept_macro_f1": 0.40419292447664,
+   "parse_rate": NaN,
+   "mel_auroc_stated": NaN,
+   "mel_recall": NaN,
+   "mel_specificity": NaN,
+   "distinct_prob_values": NaN,
+   "atypical_pigment_network_cited_rate": NaN,
+   "atypical_pigment_network_auroc": NaN,
+   "blue_whitish_veil_present_cited_rate": NaN,
+   "blue_whitish_veil_present_auroc": NaN,
+   "atypical_vascular_cited_rate": NaN,
+   "atypical_vascular_auroc": NaN,
+   "irregular_streaks_cited_rate": NaN,
+   "irregular_streaks_auroc": NaN,
+   "irregular_pigmentation_cited_rate": NaN,
+   "irregular_pigmentation_auroc": NaN,
+   "irregular_dots_globules_cited_rate": NaN,
+   "irregular_dots_globules_auroc": NaN,
+   "regression_present_cited_rate": NaN,
+   "regression_present_auroc": NaN,
+   "pigment_network_uncertain_rate": NaN,
+   "pigment_network_kappa": NaN,
+   "streaks_uncertain_rate": NaN,
+   "streaks_kappa": NaN,
+   "pigmentation_uncertain_rate": NaN,
+   "pigmentation_kappa": NaN,
+   "regression_structures_uncertain_rate": NaN,
+   "regression_structures_kappa": NaN,
+   "dots_and_globules_uncertain_rate": NaN,
+   "dots_and_globules_kappa": NaN,
+   "blue_whitish_veil_uncertain_rate": NaN,
+   "blue_whitish_veil_kappa": NaN,
+   "vascular_structures_uncertain_rate": NaN,
+   "vascular_structures_kappa": NaN,
+   "concept_macro_auroc": NaN,
+   "self_consistency": NaN,
+   "distinct_feature_vectors": NaN,
+   "mel_auroc_stated_ci": NaN,
+   "concept_macro_f1_ci": NaN,
+   "concept_macro_auroc_ci": NaN,
+   "self_consistency_ci": NaN,
+   "cross_format_agreement": NaN
+  },
+  {
+   "model": "baseline:never_cite",
+   "variant": "-",
+   "n": 395,
+   "atypical_pigment_network_precision": NaN,
+   "atypical_pigment_network_recall": 0.0,
+   "atypical_pigment_network_f1": NaN,
+   "blue_whitish_veil_present_precision": NaN,
+   "blue_whitish_veil_present_recall": 0.0,
+   "blue_whitish_veil_present_f1": NaN,
+   "atypical_vascular_precision": NaN,
+   "atypical_vascular_recall": 0.0,
+   "atypical_vascular_f1": NaN,
+   "irregular_streaks_precision": NaN,
+   "irregular_streaks_recall": 0.0,
+   "irregular_streaks_f1": NaN,
+   "irregular_pigmentation_precision": NaN,
+   "irregular_pigmentation_recall": 0.0,
+   "irregular_pigmentation_f1": NaN,
+   "irregular_dots_globules_precision": NaN,
+   "irregular_dots_globules_recall": 0.0,
+   "irregular_dots_globules_f1": NaN,
+   "regression_present_precision": NaN,
+   "regression_present_recall": 0.0,
+   "regression_present_f1": NaN,
+   "concept_macro_f1": 0.0,
+   "parse_rate": NaN,
+   "mel_auroc_stated": NaN,
+   "mel_recall": NaN,
+   "mel_specificity": NaN,
+   "distinct_prob_values": NaN,
+   "atypical_pigment_network_cited_rate": NaN,
+   "atypical_pigment_network_auroc": NaN,
+   "blue_whitish_veil_present_cited_rate": NaN,
+   "blue_whitish_veil_present_auroc": NaN,
+   "atypical_vascular_cited_rate": NaN,
+   "atypical_vascular_auroc": NaN,
+   "irregular_streaks_cited_rate": NaN,
+   "irregular_streaks_auroc": NaN,
+   "irregular_pigmentation_cited_rate": NaN,
+   "irregular_pigmentation_auroc": NaN,
+   "irregular_dots_globules_cited_rate": NaN,
+   "irregular_dots_globules_auroc": NaN,
+   "regression_present_cited_rate": NaN,
+   "regression_present_auroc": NaN,
+   "pigment_network_uncertain_rate": NaN,
+   "pigment_network_kappa": NaN,
+   "streaks_uncertain_rate": NaN,
+   "streaks_kappa": NaN,
+   "pigmentation_uncertain_rate": NaN,
+   "pigmentation_kappa": NaN,
+   "regression_structures_uncertain_rate": NaN,
+   "regression_structures_kappa": NaN,
+   "dots_and_globules_uncertain_rate": NaN,
+   "dots_and_globules_kappa": NaN,
+   "blue_whitish_veil_uncertain_rate": NaN,
+   "blue_whitish_veil_kappa": NaN,
+   "vascular_structures_uncertain_rate": NaN,
+   "vascular_structures_kappa": NaN,
+   "concept_macro_auroc": NaN,
+   "self_consistency": NaN,
+   "distinct_feature_vectors": NaN,
+   "mel_auroc_stated_ci": NaN,
+   "concept_macro_f1_ci": NaN,
+   "concept_macro_auroc_ci": NaN,
+   "self_consistency_ci": NaN,
+   "cross_format_agreement": NaN
+  },
+  {
+   "model": "medgemma15_4b",
+   "variant": "schema",
+   "n": 395,
+   "atypical_pigment_network_precision": 0.5517241379310345,
+   "atypical_pigment_network_recall": 0.1720430107526881,
+   "atypical_pigment_network_f1": 0.2622950819672131,
+   "blue_whitish_veil_present_precision": 0.5294117647058824,
+   "blue_whitish_veil_present_recall": 0.6,
+   "blue_whitish_veil_present_f1": 0.5625,
+   "atypical_vascular_precision": 0.0,
+   "atypical_vascular_recall": 0.0,
+   "atypical_vascular_f1": NaN,
+   "irregular_streaks_precision": 0.5047619047619047,
+   "irregular_streaks_recall": 0.5638297872340425,
+   "irregular_streaks_f1": 0.5326633165829145,
+   "irregular_pigmentation_precision": 0.4896907216494845,
+   "irregular_pigmentation_recall": 0.7661290322580645,
+   "irregular_pigmentation_f1": 0.5974842767295596,
+   "irregular_dots_globules_precision": 0.7346938775510204,
+   "irregular_dots_globules_recall": 0.4067796610169492,
+   "irregular_dots_globules_f1": 0.5236363636363637,
+   "regression_present_precision": 0.3277310924369748,
+   "regression_present_recall": 0.3679245283018867,
+   "regression_present_f1": 0.3466666666666666,
+   "concept_macro_f1": 0.4708742842637863,
+   "parse_rate": 1.0,
+   "mel_auroc_stated": 0.6911497272176197,
+   "mel_recall": 0.5841584158415841,
+   "mel_specificity": 0.7891156462585034,
+   "distinct_prob_values": 9.0,
+   "atypical_pigment_network_cited_rate": 0.0734177215189873,
+   "atypical_pigment_network_auroc": 0.564498326568397,
+   "blue_whitish_veil_present_cited_rate": 0.2151898734177215,
+   "blue_whitish_veil_present_auroc": 0.7375,
+   "atypical_vascular_cited_rate": 0.0151898734177215,
+   "atypical_vascular_auroc": 0.4913043478260869,
+   "irregular_streaks_cited_rate": 0.2658227848101265,
+   "irregular_streaks_auroc": 0.695536156075493,
+   "irregular_pigmentation_cited_rate": 0.4911392405063291,
+   "irregular_pigmentation_auroc": 0.7004076895607665,
+   "irregular_dots_globules_cited_rate": 0.2481012658227848,
+   "irregular_dots_globules_auroc": 0.6437568029855388,
+   "regression_present_cited_rate": 0.3012658227848101,
+   "regression_present_auroc": 0.5455539596526735,
+   "pigment_network_uncertain_rate": 0.0,
+   "pigment_network_kappa": 0.2335160438505241,
+   "streaks_uncertain_rate": 0.0,
+   "streaks_kappa": 0.2775567190226877,
+   "pigmentation_uncertain_rate": 0.0,
+   "pigmentation_kappa": 0.1039447920149004,
+   "regression_structures_uncertain_rate": 0.0,
+   "regression_structures_kappa": 0.0624337727291993,
+   "dots_and_globules_uncertain_rate": 0.0,
+   "dots_and_globules_kappa": 0.1328728495191556,
+   "blue_whitish_veil_uncertain_rate": 0.0,
+   "blue_whitish_veil_kappa": 0.4519326065411297,
+   "vascular_structures_uncertain_rate": 0.0,
+   "vascular_structures_kappa": 0.1080113952195662,
+   "concept_macro_auroc": 0.6255081832384223,
+   "self_consistency": 0.9898734177215188,
+   "distinct_feature_vectors": 0.1417721518987341,
+   "mel_auroc_stated_ci": "[0.634, 0.747]",
+   "concept_macro_f1_ci": "[0.423, 0.512]",
+   "concept_macro_auroc_ci": "[0.604, 0.645]",
+   "self_consistency_ci": "[0.980, 0.997]",
+   "cross_format_agreement": NaN
+  },
+  {
+   "model": "medgemma15_4b",
+   "variant": "shuffled",
+   "n": 395,
+   "atypical_pigment_network_precision": 0.4042553191489361,
+   "atypical_pigment_network_recall": 0.2043010752688172,
+   "atypical_pigment_network_f1": 0.2714285714285714,
+   "blue_whitish_veil_present_precision": 0.5324675324675324,
+   "blue_whitish_veil_present_recall": 0.5466666666666666,
+   "blue_whitish_veil_present_f1": 0.5394736842105262,
+   "atypical_vascular_precision": 0.2222222222222222,
+   "atypical_vascular_recall": 0.04,
+   "atypical_vascular_f1": 0.0677966101694915,
+   "irregular_streaks_precision": 0.4166666666666667,
+   "irregular_streaks_recall": 0.5319148936170213,
+   "irregular_streaks_f1": 0.4672897196261682,
+   "irregular_pigmentation_precision": 0.3854166666666667,
+   "irregular_pigmentation_recall": 0.8951612903225806,
+   "irregular_pigmentation_f1": 0.5388349514563108,
+   "irregular_dots_globules_precision": 0.6228070175438597,
+   "irregular_dots_globules_recall": 0.4011299435028249,
+   "irregular_dots_globules_f1": 0.4879725085910653,
+   "regression_present_precision": 0.34375,
+   "regression_present_recall": 0.4150943396226415,
+   "regression_present_f1": 0.376068376068376,
+   "concept_macro_f1": 0.3926949173643585,
+   "parse_rate": 1.0,
+   "mel_auroc_stated": 0.7062369502256348,
+   "mel_recall": 0.6831683168316832,
+   "mel_specificity": 0.7074829931972789,
+   "distinct_prob_values": 12.0,
+   "atypical_pigment_network_cited_rate": 0.1189873417721519,
+   "atypical_pigment_network_auroc": 0.5557929217403689,
+   "blue_whitish_veil_present_cited_rate": 0.1949367088607595,
+   "blue_whitish_veil_present_auroc": 0.7170833333333333,
+   "atypical_vascular_cited_rate": 0.0227848101265822,
+   "atypical_vascular_auroc": 0.5098550724637682,
+   "irregular_streaks_cited_rate": 0.3037974683544304,
+   "irregular_streaks_auroc": 0.6496783770410688,
+   "irregular_pigmentation_cited_rate": 0.7291139240506329,
+   "irregular_pigmentation_auroc": 0.6210123794786335,
+   "irregular_dots_globules_cited_rate": 0.2886075949367088,
+   "irregular_dots_globules_auroc": 0.6019411185404032,
+   "regression_present_cited_rate": 0.3240506329113924,
+   "regression_present_auroc": 0.5622184500881373,
+   "pigment_network_uncertain_rate": 0.1240506329113924,
+   "pigment_network_kappa": 0.1928247574862926,
+   "streaks_uncertain_rate": 0.0151898734177215,
+   "streaks_kappa": 0.1883851712655271,
+   "pigmentation_uncertain_rate": 0.0,
+   "pigmentation_kappa": 0.0771167151535249,
+   "regression_structures_uncertain_rate": 0.0075949367088607,
+   "regression_structures_kappa": 0.0576399310766493,
+   "dots_and_globules_uncertain_rate": 0.010126582278481,
+   "dots_and_globules_kappa": 0.0936175872617759,
+   "blue_whitish_veil_uncertain_rate": 0.010126582278481,
+   "blue_whitish_veil_kappa": 0.4283864500229731,
+   "vascular_structures_uncertain_rate": 0.0025316455696202,
+   "vascular_structures_kappa": 0.1552086007217599,
+   "concept_macro_auroc": 0.6025116646693877,
+   "self_consistency": 0.8886075949367088,
+   "distinct_feature_vectors": 0.3518987341772152,
+   "mel_auroc_stated_ci": "[0.648, 0.755]",
+   "concept_macro_f1_ci": "[0.359, 0.463]",
+   "concept_macro_auroc_ci": "[0.582, 0.622]",
+   "self_consistency_ci": "[0.858, 0.919]",
+   "cross_format_agreement": NaN
+  },
+  {
+   "model": "medgemma15_4b",
+   "variant": "yesno",
+   "n": 395,
+   "atypical_pigment_network_precision": NaN,
+   "atypical_pigment_network_recall": NaN,
+   "atypical_pigment_network_f1": NaN,
+   "blue_whitish_veil_present_precision": NaN,
+   "blue_whitish_veil_present_recall": NaN,
+   "blue_whitish_veil_present_f1": NaN,
+   "atypical_vascular_precision": NaN,
+   "atypical_vascular_recall": NaN,
+   "atypical_vascular_f1": NaN,
+   "irregular_streaks_precision": NaN,
+   "irregular_streaks_recall": NaN,
+   "irregular_streaks_f1": NaN,
+   "irregular_pigmentation_precision": NaN,
+   "irregular_pigmentation_recall": NaN,
+   "irregular_pigmentation_f1": NaN,
+   "irregular_dots_globules_precision": NaN,
+   "irregular_dots_globules_recall": NaN,
+   "irregular_dots_globules_f1": NaN,
+   "regression_present_precision": NaN,
+   "regression_present_recall": NaN,
+   "regression_present_f1": NaN,
+   "concept_macro_f1": NaN,
+   "parse_rate": NaN,
+   "mel_auroc_stated": 0.5654004175927797,
+   "mel_recall": 0.0,
+   "mel_specificity": 1.0,
+   "distinct_prob_values": NaN,
+   "atypical_pigment_network_cited_rate": NaN,
+   "atypical_pigment_network_auroc": NaN,
+   "blue_whitish_veil_present_cited_rate": NaN,
+   "blue_whitish_veil_present_auroc": NaN,
+   "atypical_vascular_cited_rate": NaN,
+   "atypical_vascular_auroc": NaN,
+   "irregular_streaks_cited_rate": NaN,
+   "irregular_streaks_auroc": NaN,
+   "irregular_pigmentation_cited_rate": NaN,
+   "irregular_pigmentation_auroc": NaN,
+   "irregular_dots_globules_cited_rate": NaN,
+   "irregular_dots_globules_auroc": NaN,
+   "regression_present_cited_rate": NaN,
+   "regression_present_auroc": NaN,
+   "pigment_network_uncertain_rate": NaN,
+   "pigment_network_kappa": NaN,
+   "streaks_uncertain_rate": NaN,
+   "streaks_kappa": NaN,
+   "pigmentation_uncertain_rate": NaN,
+   "pigmentation_kappa": NaN,
+   "regression_structures_uncertain_rate": NaN,
+   "regression_structures_kappa": NaN,
+   "dots_and_globules_uncertain_rate": NaN,
+   "dots_and_globules_kappa": NaN,
+   "blue_whitish_veil_uncertain_rate": NaN,
+   "blue_whitish_veil_kappa": NaN,
+   "vascular_structures_uncertain_rate": NaN,
+   "vascular_structures_kappa": NaN,
+   "concept_macro_auroc": NaN,
+   "self_consistency": NaN,
+   "distinct_feature_vectors": NaN,
+   "mel_auroc_stated_ci": NaN,
+   "concept_macro_f1_ci": NaN,
+   "concept_macro_auroc_ci": NaN,
+   "self_consistency_ci": NaN,
+   "cross_format_agreement": 0.6075949367088608
+  },
+  {
+   "model": "qwen25vl7b",
+   "variant": "schema",
+   "n": 395,
+   "atypical_pigment_network_precision": 0.237851662404092,
+   "atypical_pigment_network_recall": 1.0,
+   "atypical_pigment_network_f1": 0.3842975206611571,
+   "blue_whitish_veil_present_precision": 0.189873417721519,
+   "blue_whitish_veil_present_recall": 1.0,
+   "blue_whitish_veil_present_f1": 0.3191489361702127,
+   "atypical_vascular_precision": 0.2222222222222222,
+   "atypical_vascular_recall": 0.04,
+   "atypical_vascular_f1": 0.0677966101694915,
+   "irregular_streaks_precision": 0.2404092071611253,
+   "irregular_streaks_recall": 1.0,
+   "irregular_streaks_f1": 0.3876288659793814,
+   "irregular_pigmentation_precision": 0.3139240506329114,
+   "irregular_pigmentation_recall": 1.0,
+   "irregular_pigmentation_f1": 0.4778420038535646,
+   "irregular_dots_globules_precision": 0.4970238095238095,
+   "irregular_dots_globules_recall": 0.943502824858757,
+   "irregular_dots_globules_f1": 0.6510721247563352,
+   "regression_present_precision": 0.2683544303797468,
+   "regression_present_recall": 1.0,
+   "regression_present_f1": 0.4231536926147704,
+   "concept_macro_f1": 0.387277107743559,
+   "parse_rate": 1.0,
+   "mel_auroc_stated": 0.5099009900990099,
+   "mel_recall": 1.0,
+   "mel_specificity": 0.0,
+   "distinct_prob_values": 2.0,
+   "atypical_pigment_network_cited_rate": 0.9898734177215188,
+   "atypical_pigment_network_auroc": 0.5066225165562914,
+   "blue_whitish_veil_present_cited_rate": 1.0,
+   "blue_whitish_veil_present_auroc": 0.5,
+   "atypical_vascular_cited_rate": 0.0227848101265822,
+   "atypical_vascular_auroc": 0.5098550724637682,
+   "irregular_streaks_cited_rate": 0.9898734177215188,
+   "irregular_streaks_auroc": 0.5066445182724253,
+   "irregular_pigmentation_cited_rate": 1.0,
+   "irregular_pigmentation_auroc": 0.5,
+   "irregular_dots_globules_cited_rate": 0.850632911392405,
+   "irregular_dots_globules_auroc": 0.5841367335302959,
+   "regression_present_cited_rate": 1.0,
+   "regression_present_auroc": 0.5,
+   "pigment_network_uncertain_rate": 0.0,
+   "pigment_network_kappa": 0.0045195651808666,
+   "streaks_uncertain_rate": 0.0,
+   "streaks_kappa": 0.007848244716389,
+   "pigmentation_uncertain_rate": 0.0,
+   "pigmentation_kappa": 0.0015342295396635,
+   "regression_structures_uncertain_rate": 0.0,
+   "regression_structures_kappa": 0.0004812916116705,
+   "dots_and_globules_uncertain_rate": 0.0,
+   "dots_and_globules_kappa": 0.1459742093477325,
+   "blue_whitish_veil_uncertain_rate": 0.0,
+   "blue_whitish_veil_kappa": 0.0,
+   "vascular_structures_uncertain_rate": 0.0,
+   "vascular_structures_kappa": 0.026750099533507,
+   "concept_macro_auroc": 0.5153226915461115,
+   "self_consistency": 1.0,
+   "distinct_feature_vectors": 0.0379746835443038,
+   "mel_auroc_stated_ci": "[0.500, 0.526]",
+   "concept_macro_f1_ci": "[0.360, 0.456]",
+   "concept_macro_auroc_ci": "[0.509, 0.522]",
+   "self_consistency_ci": "[1.000, 1.000]",
+   "cross_format_agreement": NaN
+  },
+  {
+   "model": "qwen25vl7b",
+   "variant": "shuffled",
+   "n": 395,
+   "atypical_pigment_network_precision": 0.2431693989071038,
+   "atypical_pigment_network_recall": 0.956989247311828,
+   "atypical_pigment_network_f1": 0.3877995642701525,
+   "blue_whitish_veil_present_precision": 0.2871794871794871,
+   "blue_whitish_veil_present_recall": 0.7466666666666667,
+   "blue_whitish_veil_present_f1": 0.4148148148148148,
+   "atypical_vascular_precision": 0.3,
+   "atypical_vascular_recall": 0.12,
+   "atypical_vascular_f1": 0.1714285714285714,
+   "irregular_streaks_precision": 0.2461059190031152,
+   "irregular_streaks_recall": 0.8404255319148937,
+   "irregular_streaks_f1": 0.3807228915662651,
+   "irregular_pigmentation_precision": 0.3179487179487179,
+   "irregular_pigmentation_recall": 1.0,
+   "irregular_pigmentation_f1": 0.4824902723735408,
+   "irregular_dots_globules_precision": 0.4748603351955307,
+   "irregular_dots_globules_recall": 0.96045197740113,
+   "irregular_dots_globules_f1": 0.6355140186915887,
+   "regression_present_precision": 0.3060344827586206,
+   "regression_present_recall": 0.6698113207547169,
+   "regression_present_f1": 0.4201183431952662,
+   "concept_macro_f1": 0.4132697823343143,
+   "parse_rate": 1.0,
+   "mel_auroc_stated": 0.5352259715767494,
+   "mel_recall": 0.99009900990099,
+   "mel_specificity": 0.064625850340136,
+   "distinct_prob_values": 6.0,
+   "atypical_pigment_network_cited_rate": 0.9265822784810128,
+   "atypical_pigment_network_auroc": 0.5198853521327352,
+   "blue_whitish_veil_present_cited_rate": 0.4936708860759494,
+   "blue_whitish_veil_present_auroc": 0.6561458333333334,
+   "atypical_vascular_cited_rate": 0.050632911392405,
+   "atypical_vascular_auroc": 0.5397101449275362,
+   "irregular_streaks_cited_rate": 0.8126582278481013,
+   "irregular_streaks_auroc": 0.5182194104757193,
+   "irregular_pigmentation_cited_rate": 0.9873417721518988,
+   "irregular_pigmentation_auroc": 0.5092250922509225,
+   "irregular_dots_globules_cited_rate": 0.9063291139240506,
+   "irregular_dots_globules_auroc": 0.5490333281501063,
+   "regression_present_cited_rate": 0.5873417721518988,
+   "regression_present_auroc": 0.5563589475745903,
+   "pigment_network_uncertain_rate": 0.010126582278481,
+   "pigment_network_kappa": 0.0310628969508972,
+   "streaks_uncertain_rate": 0.0,
+   "streaks_kappa": 0.0128050321529863,
+   "pigmentation_uncertain_rate": 0.0,
+   "pigmentation_kappa": 0.0124694262980278,
+   "regression_structures_uncertain_rate": 0.0025316455696202,
+   "regression_structures_kappa": 0.0422399370140734,
+   "dots_and_globules_uncertain_rate": 0.0025316455696202,
+   "dots_and_globules_kappa": 0.0894301574713946,
+   "blue_whitish_veil_uncertain_rate": 0.0,
+   "blue_whitish_veil_kappa": 0.1936692506459947,
+   "vascular_structures_uncertain_rate": 0.0,
+   "vascular_structures_kappa": 0.1095692097698177,
+   "concept_macro_auroc": 0.5497968726921348,
+   "self_consistency": 0.979746835443038,
+   "distinct_feature_vectors": 0.2126582278481012,
+   "mel_auroc_stated_ci": "[0.515, 0.557]",
+   "concept_macro_f1_ci": "[0.378, 0.447]",
+   "concept_macro_auroc_ci": "[0.532, 0.567]",
+   "self_consistency_ci": "[0.965, 0.992]",
+   "cross_format_agreement": NaN
+  },
+  {
+   "model": "qwen25vl7b",
+   "variant": "yesno",
+   "n": 395,
+   "atypical_pigment_network_precision": NaN,
+   "atypical_pigment_network_recall": NaN,
+   "atypical_pigment_network_f1": NaN,
+   "blue_whitish_veil_present_precision": NaN,
+   "blue_whitish_veil_present_recall": NaN,
+   "blue_whitish_veil_present_f1": NaN,
+   "atypical_vascular_precision": NaN,
+   "atypical_vascular_recall": NaN,
+   "atypical_vascular_f1": NaN,
+   "irregular_streaks_precision": NaN,
+   "irregular_streaks_recall": NaN,
+   "irregular_streaks_f1": NaN,
+   "irregular_pigmentation_precision": NaN,
+   "irregular_pigmentation_recall": NaN,
+   "irregular_pigmentation_f1": NaN,
+   "irregular_dots_globules_precision": NaN,
+   "irregular_dots_globules_recall": NaN,
+   "irregular_dots_globules_f1": NaN,
+   "regression_present_precision": NaN,
+   "regression_present_recall": NaN,
+   "regression_present_f1": NaN,
+   "concept_macro_f1": NaN,
+   "parse_rate": NaN,
+   "mel_auroc_stated": 0.6712467165083855,
+   "mel_recall": 0.3069306930693069,
+   "mel_specificity": 0.891156462585034,
+   "distinct_prob_values": NaN,
+   "atypical_pigment_network_cited_rate": NaN,
+   "atypical_pigment_network_auroc": NaN,
+   "blue_whitish_veil_present_cited_rate": NaN,
+   "blue_whitish_veil_present_auroc": NaN,
+   "atypical_vascular_cited_rate": NaN,
+   "atypical_vascular_auroc": NaN,
+   "irregular_streaks_cited_rate": NaN,
+   "irregular_streaks_auroc": NaN,
+   "irregular_pigmentation_cited_rate": NaN,
+   "irregular_pigmentation_auroc": NaN,
+   "irregular_dots_globules_cited_rate": NaN,
+   "irregular_dots_globules_auroc": NaN,
+   "regression_present_cited_rate": NaN,
+   "regression_present_auroc": NaN,
+   "pigment_network_uncertain_rate": NaN,
+   "pigment_network_kappa": NaN,
+   "streaks_uncertain_rate": NaN,
+   "streaks_kappa": NaN,
+   "pigmentation_uncertain_rate": NaN,
+   "pigmentation_kappa": NaN,
+   "regression_structures_uncertain_rate": NaN,
+   "regression_structures_kappa": NaN,
+   "dots_and_globules_uncertain_rate": NaN,
+   "dots_and_globules_kappa": NaN,
+   "blue_whitish_veil_uncertain_rate": NaN,
+   "blue_whitish_veil_kappa": NaN,
+   "vascular_structures_uncertain_rate": NaN,
+   "vascular_structures_kappa": NaN,
+   "concept_macro_auroc": NaN,
+   "self_consistency": NaN,
+   "distinct_feature_vectors": NaN,
+   "mel_auroc_stated_ci": NaN,
+   "concept_macro_f1_ci": NaN,
+   "concept_macro_auroc_ci": NaN,
+   "self_consistency_ci": NaN,
+   "cross_format_agreement": 0.210126582278481
+  }
+ ],
+ "concept_zero_shot": {
+  "monet": {
+   "atypical_pigment_network": 0.5315631628995684,
+   "blue_whitish_veil_present": 0.8441452991452991,
+   "atypical_vascular": 0.6906342182890854,
+   "irregular_streaks": 0.607442888725129,
+   "irregular_pigmentation": 0.752309682187731,
+   "irregular_dots_globules": 0.6884366576819407,
+   "regression_present": 0.6206413236701764,
+   "macro_auroc": 0.6764533189427043
+  },
+  "dermlip_vitb16": {
+   "atypical_pigment_network": 0.6248628483651525,
+   "blue_whitish_veil_present": 0.8255555555555556,
+   "atypical_vascular": 0.798180924287119,
+   "irregular_streaks": 0.6723655121591746,
+   "irregular_pigmentation": 0.6425535846267554,
+   "irregular_dots_globules": 0.6768733153638814,
+   "regression_present": 0.7141733898536853,
+   "macro_auroc": 0.7077950186016176
+  },
+  "dermlip_panderm": {
+   "atypical_pigment_network": 0.6454173067076292,
+   "blue_whitish_veil_present": 0.7682051282051282,
+   "atypical_vascular": 0.6650073746312686,
+   "irregular_streaks": 0.6313190862196021,
+   "irregular_pigmentation": 0.6602919438285291,
+   "irregular_dots_globules": 0.614123989218329,
+   "regression_present": 0.5196567756050869,
+   "macro_auroc": 0.6434316577736533
+  },
+  "biomedclip": {
+   "atypical_pigment_network": 0.6394192085436324,
+   "blue_whitish_veil_present": 0.823974358974359,
+   "atypical_vascular": 0.46816617502458213,
+   "irregular_streaks": 0.6993367722918202,
+   "irregular_pigmentation": 0.6119425966986943,
+   "irregular_dots_globules": 0.6988140161725067,
+   "regression_present": 0.6889101599890606,
+   "macro_auroc": 0.6615090410992366
+  }
+ },
+ "blur": [
+  {
+   "model": "medgemma15_4b",
+   "prompt": "JSON (shuffled)",
+   "n": 395,
+   "feature_agreement": 0.623508137432188,
+   "all7_identical": 0.1012658227848101,
+   "diagnosis_agreement": 0.3594936708860759,
+   "mel_auroc_original": 0.7062369502256348,
+   "mel_auroc_blurred": 0.5172593789991244,
+   "said_melanoma_original": 0.3924050632911392,
+   "said_melanoma_blurred": 0.0329113924050632,
+   "agree_pigment_network": 0.6227848101265823,
+   "agree_streaks": 0.6784810126582278,
+   "agree_pigmentation": 0.2151898734177215,
+   "agree_regression_structures": 0.6683544303797468,
+   "agree_dots_and_globules": 0.6759493670886076,
+   "agree_blue_whitish_veil": 0.7924050632911392,
+   "agree_vascular_structures": 0.7113924050632912,
+   "p_yes_correlation": NaN
+  },
+  {
+   "model": "medgemma15_4b",
+   "prompt": "yes/no",
+   "n": 395,
+   "feature_agreement": NaN,
+   "all7_identical": NaN,
+   "diagnosis_agreement": 1.0,
+   "mel_auroc_original": 0.5654004175927797,
+   "mel_auroc_blurred": 0.5864821175995151,
+   "said_melanoma_original": NaN,
+   "said_melanoma_blurred": NaN,
+   "agree_pigment_network": NaN,
+   "agree_streaks": NaN,
+   "agree_pigmentation": NaN,
+   "agree_regression_structures": NaN,
+   "agree_dots_and_globules": NaN,
+   "agree_blue_whitish_veil": NaN,
+   "agree_vascular_structures": NaN,
+   "p_yes_correlation": 0.3052515263362696
+  },
+  {
+   "model": "qwen25vl7b",
+   "prompt": "JSON (shuffled)",
+   "n": 395,
+   "feature_agreement": 0.7858951175406872,
+   "all7_identical": 0.2962025316455696,
+   "diagnosis_agreement": 0.9265822784810128,
+   "mel_auroc_original": 0.5352259715767494,
+   "mel_auroc_blurred": 0.5156428908196942,
+   "said_melanoma_original": 0.9493670886075948,
+   "said_melanoma_blurred": 0.9569620253164556,
+   "agree_pigment_network": 0.9113924050632912,
+   "agree_streaks": 0.8430379746835444,
+   "agree_pigmentation": 0.6962025316455697,
+   "agree_regression_structures": 0.6936708860759494,
+   "agree_dots_and_globules": 0.8683544303797468,
+   "agree_blue_whitish_veil": 0.6531645569620254,
+   "agree_vascular_structures": 0.8354430379746836,
+   "p_yes_correlation": NaN
+  },
+  {
+   "model": "qwen25vl7b",
+   "prompt": "yes/no",
+   "n": 395,
+   "feature_agreement": NaN,
+   "all7_identical": NaN,
+   "diagnosis_agreement": 0.8405063291139241,
+   "mel_auroc_original": 0.6712467165083855,
+   "mel_auroc_blurred": 0.6483801441368625,
+   "said_melanoma_original": NaN,
+   "said_melanoma_blurred": NaN,
+   "agree_pigment_network": NaN,
+   "agree_streaks": NaN,
+   "agree_pigmentation": NaN,
+   "agree_regression_structures": NaN,
+   "agree_dots_and_globules": NaN,
+   "agree_blue_whitish_veil": NaN,
+   "agree_vascular_structures": NaN,
+   "p_yes_correlation": 0.3186870689936334
+  }
+ ],
+ "fairness_ddi": [
+  {
+   "model": "dermlip_panderm \u00b7 zero-shot",
+   "n": 656,
+   "I-II": 0.7231420870234886,
+   "I-II_ci": "[0.631, 0.810]",
+   "III-IV": 0.7124130118142095,
+   "III-IV_ci": "[0.636, 0.777]",
+   "V-VI": 0.7701781970649895,
+   "V-VI_ci": "[0.690, 0.846]",
+   "all": 0.725797311147284,
+   "all_ci": "[0.677, 0.773]",
+   "gap_best_minus_worst": 0.05776518525078,
+   "worst_group": "III-IV"
+  },
+  {
+   "model": "dermlip_vitb16 \u00b7 zero-shot",
+   "n": 656,
+   "I-II": 0.6977281478629187,
+   "I-II_ci": "[0.616, 0.779]",
+   "III-IV": 0.7694610778443113,
+   "III-IV_ci": "[0.702, 0.833]",
+   "V-VI": 0.5611897274633123,
+   "V-VI_ci": "[0.460, 0.661]",
+   "all": 0.6883704105624887,
+   "all_ci": "[0.636, 0.735]",
+   "gap_best_minus_worst": 0.2082713503809989,
+   "worst_group": "V-VI"
+  },
+  {
+   "model": "biomedclip \u00b7 zero-shot",
+   "n": 656,
+   "I-II": 0.6812989346682069,
+   "I-II_ci": "[0.585, 0.772]",
+   "III-IV": 0.7005988023952097,
+   "III-IV_ci": "[0.629, 0.767]",
+   "V-VI": 0.5769129979035639,
+   "V-VI_ci": "[0.473, 0.677]",
+   "all": 0.6540061493941037,
+   "all_ci": "[0.603, 0.703]",
+   "gap_best_minus_worst": 0.1236858044916457,
+   "worst_group": "V-VI"
+  },
+  {
+   "model": "qwen25vl7b \u00b7 yes/no",
+   "n": 656,
+   "I-II": 0.6186625593633679,
+   "I-II_ci": "[0.537, 0.705]",
+   "III-IV": 0.6542320763877649,
+   "III-IV_ci": "[0.577, 0.730]",
+   "V-VI": 0.5372117400419287,
+   "V-VI_ci": "[0.445, 0.631]",
+   "all": 0.6119973473201905,
+   "all_ci": "[0.562, 0.662]",
+   "gap_best_minus_worst": 0.1170203363458362,
+   "worst_group": "V-VI"
+  },
+  {
+   "model": "monet \u00b7 zero-shot",
+   "n": 656,
+   "I-II": 0.5811834167629316,
+   "I-II_ci": "[0.488, 0.674]",
+   "III-IV": 0.6884609160058262,
+   "III-IV_ci": "[0.620, 0.758]",
+   "V-VI": 0.492269392033543,
+   "V-VI_ci": "[0.397, 0.600]",
+   "all": 0.6036655211912944,
+   "all_ci": "[0.552, 0.654]",
+   "gap_best_minus_worst": 0.1961915239722831,
+   "worst_group": "V-VI"
+  },
+  {
+   "model": "medgemma15_4b \u00b7 yes/no",
+   "n": 656,
+   "I-II": 0.5896547298164548,
+   "I-II_ci": "[0.497, 0.682]",
+   "III-IV": 0.6903220585855318,
+   "III-IV_ci": "[0.618, 0.758]",
+   "V-VI": 0.4608228511530399,
+   "V-VI_ci": "[0.356, 0.568]",
+   "all": 0.5941279315126304,
+   "all_ci": "[0.542, 0.645]",
+   "gap_best_minus_worst": 0.2294992074324918,
+   "worst_group": "V-VI"
+  },
+  {
+   "model": "medgemma15_4b \u00b7 JSON (mel. prob.)",
+   "n": 656,
+   "I-II": 0.5653959697086381,
+   "I-II_ci": "[0.507, 0.632]",
+   "III-IV": 0.5559556562550574,
+   "III-IV_ci": "[0.502, 0.613]",
+   "V-VI": 0.4548611111111111,
+   "V-VI_ci": "[0.399, 0.508]",
+   "all": 0.5306143365286068,
+   "all_ci": "[0.496, 0.566]",
+   "gap_best_minus_worst": 0.1105348585975269,
+   "worst_group": "V-VI"
+  },
+  {
+   "model": "qwen25vl7b \u00b7 JSON (mel. prob.)",
+   "n": 656,
+   "I-II": 0.5365806700038506,
+   "I-II_ci": "[0.452, 0.620]",
+   "III-IV": 0.477342612073151,
+   "III-IV_ci": "[0.398, 0.546]",
+   "V-VI": 0.5312500000000001,
+   "V-VI_ci": "[0.446, 0.613]",
+   "all": 0.5078012901669983,
+   "all_ci": "[0.461, 0.555]",
+   "gap_best_minus_worst": 0.0592380579306995,
+   "worst_group": "III-IV"
+  }
+ ],
+ "concepts_by_skintone": {
+  "dermlip_vitb16": {
+   "Papule": {
+    "all": 0.6874919058925102,
+    "I-II": 0.6447435897435898,
+    "III-IV": 0.7115027829313544,
+    "V-VI": 0.693913043478261
+   },
+   "Brown(Hyperpigmentation)": {
+    "all": 0.7273332727878183,
+    "I-II": 0.6564645308924486,
+    "III-IV": 0.7446900114810563,
+    "V-VI": 0.6983410749834108
+   },
+   "Erythema": {
+    "all": 0.6392635432694859,
+    "I-II": 0.6094295143800094,
+    "III-IV": 0.6861111111111111,
+    "V-VI": 0.6516447368421052
+   },
+   "Plaque": {
+    "all": 0.6413181725681725,
+    "I-II": 0.5307409353652128,
+    "III-IV": 0.5840097756829885,
+    "V-VI": 0.7399193548387097
+   },
+   "Scale": {
+    "all": 0.6869524035046175,
+    "I-II": 0.6302779057270075,
+    "III-IV": 0.6990805672432601,
+    "V-VI": 0.7512864493996569
+   },
+   "Dome-shaped": {
+    "all": 0.7725520027280118,
+    "I-II": 0.7550575785869903,
+    "III-IV": 0.7784013605442177,
+    "V-VI": 0.7799465240641711
+   },
+   "Crust": {
+    "all": 0.7973397197320301,
+    "I-II": 0.7242907801418439,
+    "III-IV": 0.8555045871559632,
+    "V-VI": 0.7883239171374764
+   },
+   "Nodule": {
+    "all": 0.7474944731024318,
+    "I-II": 0.717016317016317,
+    "III-IV": 0.6659829059829059,
+    "V-VI": 0.7983957219251338
+   },
+   "macro": {
+    "all": 0.7124681866981348,
+    "I-II": 0.6585026439816775,
+    "III-IV": 0.7156603877666071,
+    "V-VI": 0.7377213528336156
+   }
+  },
+  "dermlip_panderm": {
+   "Papule": {
+    "all": 0.6722641916684653,
+    "I-II": 0.5961538461538461,
+    "III-IV": 0.726499690785405,
+    "V-VI": 0.6517391304347826
+   },
+   "Brown(Hyperpigmentation)": {
+    "all": 0.5845467663649482,
+    "I-II": 0.5464340198321891,
+    "III-IV": 0.6321039035591274,
+    "V-VI": 0.5380225613802256
+   },
+   "Erythema": {
+    "all": 0.7477052050724253,
+    "I-II": 0.7288071664309288,
+    "III-IV": 0.7388888888888889,
+    "V-VI": 0.703453947368421
+   },
+   "Plaque": {
+    "all": 0.5317460317460317,
+    "I-II": 0.6230513224732878,
+    "III-IV": 0.42140176311425337,
+    "V-VI": 0.5590607210626186
+   },
+   "Scale": {
+    "all": 0.6772072351044645,
+    "I-II": 0.7319207738369415,
+    "III-IV": 0.6300451924575347,
+    "V-VI": 0.6660949113779302
+   },
+   "Dome-shaped": {
+    "all": 0.7917267791097238,
+    "I-II": 0.7494553376906318,
+    "III-IV": 0.7882653061224489,
+    "V-VI": 0.8112299465240642
+   },
+   "Crust": {
+    "all": 0.7681478364995631,
+    "I-II": 0.8318557919621749,
+    "III-IV": 0.7298165137614678,
+    "V-VI": 0.7566854990583805
+   },
+   "Nodule": {
+    "all": 0.7867722918201915,
+    "I-II": 0.5417249417249417,
+    "III-IV": 0.7952136752136751,
+    "V-VI": 0.8957219251336899
+   },
+   "macro": {
+    "all": 0.6950145421732267,
+    "I-II": 0.6686754000131176,
+    "III-IV": 0.6827793667378501,
+    "V-VI": 0.6977510802925141
+   }
+  },
+  "monet": {
+   "Papule": {
+    "all": 0.6516619900712282,
+    "I-II": 0.6274358974358974,
+    "III-IV": 0.6107761286332715,
+    "V-VI": 0.6246739130434782
+   },
+   "Brown(Hyperpigmentation)": {
+    "all": 0.7222070858434495,
+    "I-II": 0.6474065598779557,
+    "III-IV": 0.7988662456946038,
+    "V-VI": 0.674850696748507
+   },
+   "Erythema": {
+    "all": 0.8179975592932563,
+    "I-II": 0.7849127769919849,
+    "III-IV": 0.8271771771771771,
+    "V-VI": 0.8412828947368421
+   },
+   "Plaque": {
+    "all": 0.5726241351241351,
+    "I-II": 0.511473112629182,
+    "III-IV": 0.5816531378196736,
+    "V-VI": 0.633894686907021
+   },
+   "Scale": {
+    "all": 0.6214320843731215,
+    "I-II": 0.6308920620297865,
+    "III-IV": 0.5653732273648122,
+    "V-VI": 0.6617114541642843
+   },
+   "Dome-shaped": {
+    "all": 0.7222149358654881,
+    "I-II": 0.6984126984126984,
+    "III-IV": 0.7090136054421767,
+    "V-VI": 0.7727272727272727
+   },
+   "Crust": {
+    "all": 0.7650085763293311,
+    "I-II": 0.7621158392434988,
+    "III-IV": 0.7181192660550458,
+    "V-VI": 0.824105461393597
+   },
+   "Nodule": {
+    "all": 0.7183861459100959,
+    "I-II": 0.5813519813519814,
+    "III-IV": 0.7425641025641025,
+    "V-VI": 0.770855614973262
+   },
+   "macro": {
+    "all": 0.6989415641012633,
+    "I-II": 0.6555001159966232,
+    "III-IV": 0.6941928613438579,
+    "V-VI": 0.725512749336783
+   }
+  },
+  "biomedclip": {
+   "Papule": {
+    "all": 0.5266134254262896,
+    "I-II": 0.517051282051282,
+    "III-IV": 0.5078076685219544,
+    "V-VI": 0.5447826086956521
+   },
+   "Brown(Hyperpigmentation)": {
+    "all": 0.5888253160980434,
+    "I-II": 0.5322273073989321,
+    "III-IV": 0.5786452353616531,
+    "V-VI": 0.6168546781685468
+   },
+   "Erythema": {
+    "all": 0.7773438743566615,
+    "I-II": 0.7161716171617162,
+    "III-IV": 0.8135885885885885,
+    "V-VI": 0.7557565789473684
+   },
+   "Plaque": {
+    "all": 0.5252085877085877,
+    "I-II": 0.5482571378525136,
+    "III-IV": 0.5606179628174915,
+    "V-VI": 0.5032020872865275
+   },
+   "Scale": {
+    "all": 0.6238911455582069,
+    "I-II": 0.6206049439582374,
+    "III-IV": 0.5027271310581268,
+    "V-VI": 0.740041928721174
+   },
+   "Dome-shaped": {
+    "all": 0.6215408021404402,
+    "I-II": 0.6308745720510427,
+    "III-IV": 0.5350340136054421,
+    "V-VI": 0.7155080213903744
+   },
+   "Crust": {
+    "all": 0.7764328942684229,
+    "I-II": 0.8229905437352246,
+    "III-IV": 0.7543577981651376,
+    "V-VI": 0.7615819209039548
+   },
+   "Nodule": {
+    "all": 0.6518054532056006,
+    "I-II": 0.4013986013986014,
+    "III-IV": 0.6167521367521368,
+    "V-VI": 0.7981283422459893
+   },
+   "macro": {
+    "all": 0.6364576873452816,
+    "I-II": 0.5986970007009438,
+    "III-IV": 0.6086913168588164,
+    "V-VI": 0.6794820207949483
+   }
+  }
+ },
+ "subgroups": [
+  {
+   "dataset": "bcn20000",
+   "attr": "age",
+   "group": "40-59",
+   "n": 4179,
+   "n_mel": 1010,
+   "auroc": 0.7514385613379893,
+   "sd": 0.021004797569517,
+   "gap_to_best": 0.0516243892567022
+  },
+  {
+   "dataset": "bcn20000",
+   "attr": "age",
+   "group": "60+",
+   "n": 6193,
+   "n_mel": 1615,
+   "auroc": 0.8030629505946915,
+   "sd": 0.0199644812783123,
+   "gap_to_best": 0.0
+  },
+  {
+   "dataset": "bcn20000",
+   "attr": "age",
+   "group": "<40",
+   "n": 1967,
+   "n_mel": 219,
+   "auroc": 0.698149193047472,
+   "sd": 0.0246268211208836,
+   "gap_to_best": 0.1049137575472194
+  },
+  {
+   "dataset": "bcn20000",
+   "attr": "sex",
+   "group": "female",
+   "n": 5840,
+   "n_mel": 1379,
+   "auroc": 0.752850138310934,
+   "sd": 0.0150243726799051,
+   "gap_to_best": 0.0377986226590284
+  },
+  {
+   "dataset": "bcn20000",
+   "attr": "sex",
+   "group": "male",
+   "n": 6499,
+   "n_mel": 1465,
+   "auroc": 0.7906487609699624,
+   "sd": 0.0209252372889628,
+   "gap_to_best": 0.0
+  },
+  {
+   "dataset": "bcn20000",
+   "attr": "site",
+   "group": "anterior torso",
+   "n": 5086,
+   "n_mel": 1127,
+   "auroc": 0.7970388810059095,
+   "sd": 0.0122276716145782,
+   "gap_to_best": 0.0178799389406555
+  },
+  {
+   "dataset": "bcn20000",
+   "attr": "site",
+   "group": "head/neck",
+   "n": 3223,
+   "n_mel": 635,
+   "auroc": 0.7537447888565707,
+   "sd": 0.0385577091331722,
+   "gap_to_best": 0.0611740310899943
+  },
+  {
+   "dataset": "bcn20000",
+   "attr": "site",
+   "group": "lower extremity",
+   "n": 2173,
+   "n_mel": 489,
+   "auroc": 0.7660699549497766,
+   "sd": 0.0199877740663622,
+   "gap_to_best": 0.0488488649967884
+  },
+  {
+   "dataset": "bcn20000",
+   "attr": "site",
+   "group": "palms/soles",
+   "n": 380,
+   "n_mel": 195,
+   "auroc": 0.6539000539000539,
+   "sd": 0.0559724456564318,
+   "gap_to_best": 0.1610187660465111
+  },
+  {
+   "dataset": "bcn20000",
+   "attr": "site",
+   "group": "upper extremity",
+   "n": 1319,
+   "n_mel": 380,
+   "auroc": 0.814918819946565,
+   "sd": 0.0300182270696452,
+   "gap_to_best": 0.0
+  },
+  {
+   "dataset": "ham_test",
+   "attr": "age",
+   "group": "40-59",
+   "n": 671,
+   "n_mel": 46,
+   "auroc": 0.934048309178744,
+   "sd": 0.0104641968678469,
+   "gap_to_best": 0.0
+  },
+  {
+   "dataset": "ham_test",
+   "attr": "age",
+   "group": "60+",
+   "n": 532,
+   "n_mel": 100,
+   "auroc": 0.8936754115226336,
+   "sd": 0.0200653216006983,
+   "gap_to_best": 0.0403728976561102
+  },
+  {
+   "dataset": "ham_test",
+   "attr": "age",
+   "group": "<40",
+   "n": 290,
+   "n_mel": 21,
+   "auroc": 0.7798233709014377,
+   "sd": 0.0337722034302162,
+   "gap_to_best": 0.1542249382773062
+  },
+  {
+   "dataset": "ham_test",
+   "attr": "sex",
+   "group": "female",
+   "n": 694,
+   "n_mel": 70,
+   "auroc": 0.8918650793650795,
+   "sd": 0.0179570785069064,
+   "gap_to_best": 0.00767722210634
+  },
+  {
+   "dataset": "ham_test",
+   "attr": "sex",
+   "group": "male",
+   "n": 796,
+   "n_mel": 97,
+   "auroc": 0.8995423014714196,
+   "sd": 0.0129363323284738,
+   "gap_to_best": 0.0
+  },
+  {
+   "dataset": "ham_test",
+   "attr": "site",
+   "group": "back",
+   "n": 333,
+   "n_mel": 54,
+   "auroc": 0.8480906234789151,
+   "sd": 0.0164900856560473,
+   "gap_to_best": 0.091644786800865
+  },
+  {
+   "dataset": "ham_test",
+   "attr": "site",
+   "group": "lower extremity",
+   "n": 319,
+   "n_mel": 24,
+   "auroc": 0.908631512868801,
+   "sd": 0.0242098228449145,
+   "gap_to_best": 0.0311038974109791
+  },
+  {
+   "dataset": "ham_test",
+   "attr": "site",
+   "group": "upper extremity",
+   "n": 176,
+   "n_mel": 27,
+   "auroc": 0.93973541027978,
+   "sd": 0.0109822914312353,
+   "gap_to_best": 0.0
+  }
+ ],
+ "vlm_summary": [
+  {
+   "model": "medgemma15_4b",
+   "set": "ddi",
+   "variant": "shuffled",
+   "subset": "all",
+   "n": 656,
+   "auroc": 0.5306143365286068,
+   "recall": 0.175438596491228,
+   "specificity": 0.8907216494845361
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ddi",
+   "variant": "shuffled",
+   "subset": "I-II",
+   "n": 208,
+   "auroc": 0.5653959697086381,
+   "recall": 0.1836734693877551,
+   "specificity": 0.949685534591195
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ddi",
+   "variant": "shuffled",
+   "subset": "III-IV",
+   "n": 241,
+   "auroc": 0.5559556562550574,
+   "recall": 0.2162162162162162,
+   "specificity": 0.874251497005988
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ddi",
+   "variant": "shuffled",
+   "subset": "V-VI",
+   "n": 207,
+   "auroc": 0.4548611111111111,
+   "recall": 0.1041666666666666,
+   "specificity": 0.8490566037735849
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ddi",
+   "variant": "yesno",
+   "subset": "all",
+   "n": 656,
+   "auroc": 0.5941279315126304,
+   "recall": 0.0,
+   "specificity": 1.0
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ddi",
+   "variant": "yesno",
+   "subset": "I-II",
+   "n": 208,
+   "auroc": 0.5896547298164548,
+   "recall": 0.0,
+   "specificity": 1.0
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ddi",
+   "variant": "yesno",
+   "subset": "III-IV",
+   "n": 241,
+   "auroc": 0.6903220585855318,
+   "recall": 0.0,
+   "specificity": 1.0
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ddi",
+   "variant": "yesno",
+   "subset": "V-VI",
+   "n": 207,
+   "auroc": 0.4608228511530399,
+   "recall": 0.0,
+   "specificity": 1.0
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "derm7pt_test",
+   "variant": "schema",
+   "subset": "all",
+   "n": 395,
+   "auroc": 0.6911497272176197,
+   "recall": 0.5841584158415841,
+   "specificity": 0.7891156462585034
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "derm7pt_test",
+   "variant": "shuffled",
+   "subset": "all",
+   "n": 395,
+   "auroc": 0.7062369502256348,
+   "recall": 0.6831683168316832,
+   "specificity": 0.7074829931972789
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "derm7pt_test",
+   "variant": "yesno",
+   "subset": "all",
+   "n": 395,
+   "auroc": 0.5654004175927797,
+   "recall": 0.0,
+   "specificity": 1.0
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ham_random_test",
+   "variant": "shuffled",
+   "subset": "all",
+   "n": 1502,
+   "auroc": 0.5777680593868443,
+   "recall": 0.3892215568862275,
+   "specificity": 0.750561797752809
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ham_random_test",
+   "variant": "yesno",
+   "subset": "all",
+   "n": 1502,
+   "auroc": 0.4817578326493081,
+   "recall": 0.0,
+   "specificity": 1.0
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ham_site_test",
+   "variant": "shuffled",
+   "subset": "all",
+   "n": 778,
+   "auroc": 0.6659607518251954,
+   "recall": 0.5806451612903226,
+   "specificity": 0.7560192616372392
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ham_site_test",
+   "variant": "shuffled",
+   "subset": "rosendahl",
+   "n": 283,
+   "auroc": 0.5938864628820961,
+   "recall": 0.4814814814814814,
+   "specificity": 0.7554585152838428
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ham_site_test",
+   "variant": "shuffled",
+   "subset": "vidir_modern",
+   "n": 495,
+   "auroc": 0.7029702970297029,
+   "recall": 0.6336633663366337,
+   "specificity": 0.7563451776649747
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ham_site_test",
+   "variant": "yesno",
+   "subset": "all",
+   "n": 778,
+   "auroc": 0.5118003417387252,
+   "recall": 0.0,
+   "specificity": 1.0
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ham_site_test",
+   "variant": "yesno",
+   "subset": "rosendahl",
+   "n": 283,
+   "auroc": 0.4863334950671195,
+   "recall": 0.0,
+   "specificity": 1.0
+  },
+  {
+   "model": "medgemma15_4b",
+   "set": "ham_site_test",
+   "variant": "yesno",
+   "subset": "vidir_modern",
+   "n": 495,
+   "auroc": 0.5198522390310096,
+   "recall": 0.0,
+   "specificity": 1.0
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ddi",
+   "variant": "shuffled",
+   "subset": "all",
+   "n": 656,
+   "auroc": 0.5078012901669983,
+   "recall": 0.4269005847953216,
+   "specificity": 0.5649484536082474
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ddi",
+   "variant": "shuffled",
+   "subset": "I-II",
+   "n": 208,
+   "auroc": 0.5365806700038506,
+   "recall": 0.4693877551020408,
+   "specificity": 0.5786163522012578
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ddi",
+   "variant": "shuffled",
+   "subset": "III-IV",
+   "n": 241,
+   "auroc": 0.477342612073151,
+   "recall": 0.3513513513513513,
+   "specificity": 0.5748502994011976
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ddi",
+   "variant": "shuffled",
+   "subset": "V-VI",
+   "n": 207,
+   "auroc": 0.5312500000000001,
+   "recall": 0.5,
+   "specificity": 0.5408805031446541
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ddi",
+   "variant": "yesno",
+   "subset": "all",
+   "n": 656,
+   "auroc": 0.6119973473201905,
+   "recall": 0.0467836257309941,
+   "specificity": 0.9711340206185568
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ddi",
+   "variant": "yesno",
+   "subset": "I-II",
+   "n": 208,
+   "auroc": 0.6186625593633679,
+   "recall": 0.0408163265306122,
+   "specificity": 0.981132075471698
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ddi",
+   "variant": "yesno",
+   "subset": "III-IV",
+   "n": 241,
+   "auroc": 0.6542320763877649,
+   "recall": 0.0675675675675675,
+   "specificity": 0.9700598802395208
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ddi",
+   "variant": "yesno",
+   "subset": "V-VI",
+   "n": 207,
+   "auroc": 0.5372117400419287,
+   "recall": 0.0208333333333333,
+   "specificity": 0.9622641509433962
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "derm7pt_test",
+   "variant": "schema",
+   "subset": "all",
+   "n": 395,
+   "auroc": 0.5099009900990099,
+   "recall": 1.0,
+   "specificity": 0.0
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "derm7pt_test",
+   "variant": "shuffled",
+   "subset": "all",
+   "n": 395,
+   "auroc": 0.5352259715767494,
+   "recall": 0.99009900990099,
+   "specificity": 0.064625850340136
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "derm7pt_test",
+   "variant": "yesno",
+   "subset": "all",
+   "n": 395,
+   "auroc": 0.6712467165083855,
+   "recall": 0.3069306930693069,
+   "specificity": 0.891156462585034
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ham_random_test",
+   "variant": "shuffled",
+   "subset": "all",
+   "n": 1502,
+   "auroc": 0.544497521810312,
+   "recall": 0.9461077844311376,
+   "specificity": 0.1408239700374531
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ham_random_test",
+   "variant": "yesno",
+   "subset": "all",
+   "n": 1502,
+   "auroc": 0.659131175850546,
+   "recall": 0.0838323353293413,
+   "specificity": 0.9812734082397004
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ham_site_test",
+   "variant": "shuffled",
+   "subset": "all",
+   "n": 778,
+   "auroc": 0.5460052814166624,
+   "recall": 0.935483870967742,
+   "specificity": 0.1396468699839486
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ham_site_test",
+   "variant": "shuffled",
+   "subset": "rosendahl",
+   "n": 283,
+   "auroc": 0.5193271874494582,
+   "recall": 0.925925925925926,
+   "specificity": 0.1091703056768559
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ham_site_test",
+   "variant": "shuffled",
+   "subset": "vidir_modern",
+   "n": 495,
+   "auroc": 0.5605116349198372,
+   "recall": 0.9405940594059404,
+   "specificity": 0.1573604060913705
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ham_site_test",
+   "variant": "yesno",
+   "subset": "all",
+   "n": 778,
+   "auroc": 0.7375860819137369,
+   "recall": 0.1612903225806451,
+   "specificity": 0.985553772070626
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ham_site_test",
+   "variant": "yesno",
+   "subset": "rosendahl",
+   "n": 283,
+   "auroc": 0.6724890829694324,
+   "recall": 0.0555555555555555,
+   "specificity": 0.982532751091703
+  },
+  {
+   "model": "qwen25vl7b",
+   "set": "ham_site_test",
+   "variant": "yesno",
+   "subset": "vidir_modern",
+   "n": 495,
+   "auroc": 0.7741870633763885,
+   "recall": 0.2178217821782178,
+   "specificity": 0.9873096446700508
+  }
+ ],
+ "dedup": {
+  "thresholds": {
+   "phash_hamming_max": 6,
+   "embed_cosine_min": 0.98
+  },
+  "images": {
+   "ham": 10015,
+   "derm7pt_derm": 1011,
+   "derm7pt_clinic": 1011,
+   "ddi": 656
+  },
+  "pairs_by_kind_and_signal": [
+   {
+    "kind": "ddi-ddi",
+    "signal": "embed",
+    "n": 5
+   },
+   {
+    "kind": "ddi-ddi",
+    "signal": "phash",
+    "n": 4
+   },
+   {
+    "kind": "ddi-ham",
+    "signal": "phash",
+    "n": 7
+   },
+   {
+    "kind": "derm7pt-derm7pt",
+    "signal": "phash",
+    "n": 32
+   },
+   {
+    "kind": "derm7pt-ham",
+    "signal": "phash",
+    "n": 123
+   },
+   {
+    "kind": "ham-ham",
+    "signal": "embed",
+    "n": 29
+   },
+   {
+    "kind": "ham-ham",
+    "signal": "phash",
+    "n": 1530
+   }
+  ],
+  "ham_cross_lesion_pairs_across_splits_embed": 14,
+  "ham_cross_lesion_pairs_test_involved": 10,
+  "ham_test_images_with_cross_split_duplicate": 10
+ },
+ "dedup_external": {
+  "bcn20000": {
+   "n": 11982,
+   "max_cos_to_HAM_>=0.98": 0,
+   ">=0.97": 3,
+   "p99_max_cos": 0.9612404108047485
+  },
+  "pad_ufes20": {
+   "n": 2106,
+   "max_cos_to_HAM_>=0.98": 0,
+   ">=0.97": 0,
+   "p99_max_cos": 0.9133919477462769
+  }
+ }
+}
