@@ -76,9 +76,12 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 22:32. The 
   - [x] Own-dataset near-duplicates ([experiments/dedup_audit.py](experiments/dedup_audit.py)): pHash unreliable for dermoscopy, so DermLIP cosine ≥ 0.98 (visually calibrated). HAM: 29 cross-lesion-ID duplicate pairs, 10 test images (0.7%) leak across splits, ΔAUROC ≤ 0.0004 when removed. DDI: 5 internal duplicate pairs. Derm7pt↔HAM: none
   - [ ] **(You)** Accept the Derm1M dataset terms on HF; then download public/pubmed/edu (~11.6 GB) and search for copies of HAM/Derm7pt test images
   - [ ] Ask a clinician (or you) to confirm the 34 flagged pairs (`results/dedup_pairs.csv`, score ≥ 0.98)
-- [ ] E4 subgroup / fairness (DDI, SkinCon, age/sex/site)
+- [~] E4 subgroup / fairness
+  - [x] DDI malignant-vs-benign AUROC by Fitzpatrick group ([experiments/fairness_ddi.py](experiments/fairness_ddi.py)): V–VI is the worst group for 6/8 model×prompt combos (0.46–0.58, gaps 0.12–0.23); DermLIP-PanDerm is the exception (0.770 on V–VI)
+  - [ ] Concept detection by skin tone (SkinCon-DDI concepts, e.g. erythema) for image-text models
+  - [ ] HAM/BCN subgroups by age, sex, body site
 - [ ] E5 triage metrics (calibration, deferral, decision curves)
-- [ ] External tests: PAD-UFES-20, BCN20000 (deduplicated)
+- [~] External tests: PAD-UFES-20 (CC BY 4.0) and BCN20000 labelled split (12,413 images, CC BY 4.0) downloading; then dedup vs HAM and evaluate
 
 ## Phase 4: Write-up
 
