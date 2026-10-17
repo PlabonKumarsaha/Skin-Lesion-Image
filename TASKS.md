@@ -85,7 +85,9 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 22:32. The 
 - [~] External tests
   - [x] Download + verify BCN20000 (12,413 labelled) and PAD-UFES-20 (2,298); `splits/external.csv` + 400 px caches ([scripts/prepare_external.py](scripts/prepare_external.py))
   - [x] Eval code: [experiments/external_eval.py](experiments/external_eval.py) (9 fine-tuned checkpoints) + external sets in foundation_eval.py
-  - [ ] **Running:** started 12:32 (fine-tuned first, then 5 foundation models)
+  - [x] Ran all: 9 fine-tuned checkpoints + 5 foundation models (finished 14:00). BCN melanoma AUROC: DermLIP probes 0.82, fine-tuned 0.75–0.79, PanDerm-L 0.757
+  - [ ] Align image sets: foundation runs exclude SCC (no HAM class), fine-tuned runs include it. Re-score both on the same set
+  - [ ] PAD-UFES-20 zero-shot 0.97 (DermLIP-PanDerm) is suspiciously high: include PAD in the Derm1M contamination check
   - [ ] Dedup BCN20000 vs HAM10000
 
 ## Phase 4: Write-up
