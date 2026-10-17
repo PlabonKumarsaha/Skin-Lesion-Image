@@ -67,7 +67,7 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 22:32. The 
 - [x] **Gate passed:** self-consistency 0.89–1.00 but concept F1 0.39–0.47 ("consistent but unfaithful"); Qwen is templated (3.8% distinct answers, AUROC 0.51)
 - [x] Baselines for E2: "always cite all" (concept F1 0.404, so Qwen is no better) and zero-shot concept AUROC from image-text models ([experiments/concept_zero_shot.py](experiments/concept_zero_shot.py)): DermLIP-B/16 0.708 > MONET 0.676 > BiomedCLIP 0.662 > DermLIP-PanDerm 0.643, vs MedGemma 0.63 / Qwen 0.52–0.55
 - [x] Bootstrap CIs for the faithfulness metrics (1,000 case resamples)
-- [ ] **Running:** image-dependence control: same prompts on blurred Derm7pt images (lesion structure removed), both VLMs (started 14:25)
+- [x] Image-dependence control ([experiments/blur_control.py](experiments/blur_control.py)): with the lesion blurred away, Qwen keeps 79% of features and 93% of diagnoses (still says melanoma 96%), so its explanations are not image-driven; yes/no AUROC barely drops (0.671→0.648). MedGemma's diagnosis is image-dependent (AUROC 0.706→0.517) but 62% of its features are unchanged
 
 ## Phase 3: Full runs
 
