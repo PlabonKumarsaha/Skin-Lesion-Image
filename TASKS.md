@@ -67,7 +67,7 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 22:32. The 
 - [x] **Gate passed:** self-consistency 0.89–1.00 but concept F1 0.39–0.47 ("consistent but unfaithful"); Qwen is templated (3.8% distinct answers, AUROC 0.51)
 - [x] Baselines for E2: "always cite all" (concept F1 0.404, so Qwen is no better) and zero-shot concept AUROC from image-text models ([experiments/concept_zero_shot.py](experiments/concept_zero_shot.py)): DermLIP-B/16 0.708 > MONET 0.676 > BiomedCLIP 0.662 > DermLIP-PanDerm 0.643, vs MedGemma 0.63 / Qwen 0.52–0.55
 - [x] Bootstrap CIs for the faithfulness metrics (1,000 case resamples)
-- [ ] Counterfactual test (mask the cited region, re-query)
+- [ ] **Running:** image-dependence control: same prompts on blurred Derm7pt images (lesion structure removed), both VLMs (started 14:25)
 
 ## Phase 3: Full runs
 
@@ -79,16 +79,16 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 22:32. The 
   - [ ] Ask a clinician (or you) to confirm the 34 flagged pairs (`results/dedup_pairs.csv`, score ≥ 0.98)
 - [~] E4 subgroup / fairness
   - [x] DDI malignant-vs-benign AUROC by Fitzpatrick group ([experiments/fairness_ddi.py](experiments/fairness_ddi.py)): V–VI is the worst group for 6/8 model×prompt combos (0.46–0.58, gaps 0.12–0.23); DermLIP-PanDerm is the exception (0.770 on V–VI)
-  - [ ] Concept detection by skin tone (SkinCon-DDI concepts, e.g. erythema) for image-text models
-  - [ ] HAM/BCN subgroups by age, sex, body site
+  - [x] Concept detection by skin tone ([experiments/concepts_by_skintone.py](experiments/concepts_by_skintone.py)): no drop on V–VI (macro AUROC 0.68–0.74 vs 0.60–0.67 on I–II), so H4 is not supported. The dark-skin drop is in diagnosis, not concept detection
+  - [x] HAM/BCN subgroups ([experiments/subgroups.py](experiments/subgroups.py)): age <40 worst on both (gaps 0.15 / 0.11); palms/soles worst site on BCN (0.654, gap 0.16); sex gap ≤ 0.04
 - [ ] E5 triage metrics (calibration, deferral, decision curves)
 - [~] External tests
   - [x] Download + verify BCN20000 (12,413 labelled) and PAD-UFES-20 (2,298); `splits/external.csv` + 400 px caches ([scripts/prepare_external.py](scripts/prepare_external.py))
   - [x] Eval code: [experiments/external_eval.py](experiments/external_eval.py) (9 fine-tuned checkpoints) + external sets in foundation_eval.py
   - [x] Ran all: 9 fine-tuned checkpoints + 5 foundation models (finished 14:00). BCN melanoma AUROC: DermLIP probes 0.82, fine-tuned 0.75–0.79, PanDerm-L 0.757
-  - [ ] Align image sets: foundation runs exclude SCC (no HAM class), fine-tuned runs include it. Re-score both on the same set
+  - [x] Aligned image sets: excluding SCC changes fine-tuned external AUROC by ≤ 0.003 (`results/external/finetuned_aligned.csv`)
   - [ ] PAD-UFES-20 zero-shot 0.97 (DermLIP-PanDerm) is suspiciously high: include PAD in the Derm1M contamination check
-  - [ ] Dedup BCN20000 vs HAM10000
+  - [x] Dedup BCN20000 / PAD-UFES-20 vs HAM10000: 0 pairs at cosine ≥ 0.98 (`results/dedup_external_vs_ham.json`)
 
 ## Phase 4: Write-up
 

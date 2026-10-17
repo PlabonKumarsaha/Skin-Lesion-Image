@@ -1,0 +1,7 @@
+ds,model,all_images,ham_classes_only
+bcn20000,convnext_tiny,0.787,0.784
+bcn20000,efficientnet_b3,0.754,0.751
+bcn20000,vit_base,0.779,0.777
+pad_ufes20,convnext_tiny,0.794,0.797
+pad_ufes20,efficientnet_b3,0.606,0.608
+pad_ufes20,vit_base,0.587,0.59

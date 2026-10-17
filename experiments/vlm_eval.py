@@ -9,6 +9,9 @@ Prompt variants (controls for option-order echoing and for a usable melanoma sco
   shuffled  every option list shuffled per image (seeded by its key) and "uncertain" added to each feature
   yesno     "Is this lesion melanoma? yes/no": melanoma score = P(yes) from the first answer token
 
+Image-dependence control (--perturb): the same prompt on a destroyed image. A faithful model should change its answer.
+  blur      Gaussian blur, radius 25 px on the 400 px image: lesion structure gone, colour and layout kept
+
 Usage:
   .venv/bin/python -I experiments/vlm_eval.py --model qwen25vl7b --set derm7pt_test --variant shuffled --limit 3
 Sets: derm7pt_test, ham_random_test, ham_site_test, ddi
@@ -146,12 +149,13 @@ def main():
     ap.add_argument("--set", required=True)
     ap.add_argument("--variant", choices=["schema", "shuffled", "yesno"], default="schema")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--perturb", choices=["none", "blur"], default="none")
     a = ap.parse_args()
     backend, repo = MODELS[a.model]
     imgs = image_set(a.set)
     if a.limit:
         imgs = imgs.sample(n=min(a.limit, len(imgs)), random_state=0)
-    suffix = "" if a.variant == "schema" else f"__{a.variant}"
+    suffix = ("" if a.variant == "schema" else f"__{a.variant}") + ("" if a.perturb == "none" else f"__{a.perturb}")
     out = ROOT / "results/vlm" / a.model / f"{a.set}{suffix}.jsonl"
     out.parent.mkdir(parents=True, exist_ok=True)
     done = {json.loads(line)["key"] for line in open(out)} if out.exists() else set()
@@ -159,11 +163,23 @@ def main():
     print(f"{a.model} on {a.set}: {len(done)} cached, {len(todo)} to run", flush=True)
     if len(todo) == 0:
         return
+    if a.perturb == "blur":  # write blurred copies once, then point the run at them
+        from PIL import Image, ImageFilter
+        pdir = ROOT / "data/processed/perturbed_blur"
+        pdir.mkdir(parents=True, exist_ok=True)
+        new = []
+        for r in todo.itertuples():
+            dst = pdir / f"{a.set}_{r.key}.jpg"
+            if not dst.exists():
+                with Image.open(r.path) as im:
+                    im.convert("RGB").filter(ImageFilter.GaussianBlur(25)).save(dst, quality=95)
+            new.append(dst)
+        todo = todo.assign(path=new)
     vlm = MLXModel(repo)
     with open(out, "a") as f:
         for i, r in enumerate(todo.itertuples(), 1):
             t = time.time()
-            rec = {"key": r.key, "model": repo, "set": a.set, "variant": a.variant}
+            rec = {"key": r.key, "model": repo, "set": a.set, "variant": a.variant, "perturb": a.perturb}
             if a.variant == "yesno":
                 p_yes, first = vlm.yes_prob(r.path, prompt("yesno", r.modality, r.key))
                 rec |= {"p_yes": p_yes, "first_token": first}
