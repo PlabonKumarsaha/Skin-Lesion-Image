@@ -1,6 +1,6 @@
 # Project Summary
 
-**Status (2026-10-16, 15:30):** Phase 1 complete (30/30 runs, site-shift gate passed). Phase 1b running: foundation models now, then open VLMs overnight. Phase 0–1b code on GitHub.
+**Status (2026-10-17, 12:35):** Phases 1 and 1b complete. E2 pilot, E3 part 1 and E4 part 1 done. External tests (BCN20000, PAD-UFES-20) running. Waiting on you: Derm1M dataset access.
 
 ## What we're doing
 
@@ -58,3 +58,4 @@ Estimated time: about 2.5–3 months part-time to a submittable draft.
 | 2026-10-17 | E2 follow-ups: an "always cite every criterion" baseline scores concept F1 0.404, so Qwen (0.39–0.41) adds no information and MedGemma (0.47, CI 0.42–0.51) only a little. Concept AUROC: zero-shot DermLIP-B/16 0.708 beats both VLMs (MedGemma 0.63, Qwen 0.52–0.55). Derm1M sources checked: no dedup against eval sets reported. |
 | 2026-10-17 | E3 part 1: PanDerm pretrained mostly on Australian clinics (explains its Queensland-robust/Vienna-fragile probe). Neither Derm1M nor PanDerm reports dedup vs eval sets. Own near-duplicate audit: HAM10000 has same-lesion images under different lesion IDs, but only 10 test images (0.7%) leak and removing them changes AUROC ≤ 0.0004; DDI has 5 duplicate pairs; no Derm7pt↔HAM overlap. Waiting on your Derm1M access for the external check. |
 | 2026-10-17 | E4 part 1 (DDI, malignant vs benign): Fitzpatrick V–VI is the worst group for 6/8 model×prompt combinations (AUROC 0.46–0.58, gaps 0.12–0.23; MedGemma yes/no 0.461). DermLIP-PanDerm is best overall (0.726) and has no dark-skin drop (0.770). PAD-UFES-20 and BCN20000 downloading for external tests. |
+| 2026-10-17 12:35 | **Phase 1b complete** (23/23 VLM jobs). HAM test melanoma AUROC: Qwen yes/no 0.66 (random) / 0.74 (site set), JSON ~0.54; MedGemma JSON 0.58–0.67, yes/no ~0.5 (never says yes). Zero-shot VLMs also do worse on Queensland than Vienna images (MedGemma JSON 0.594 vs 0.703; Qwen yes/no 0.672 vs 0.774), so Queensland images are harder for general models too. |

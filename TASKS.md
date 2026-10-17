@@ -55,7 +55,8 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 22:32. The 
 - [x] VLM prompt controls: `shuffled` variant (option order shuffled + "uncertain") and `yesno` variant (melanoma score = P(yes) from token log-probs)
 - [x] Phase 1b runner ([experiments/run_phase1b.py](experiments/run_phase1b.py)): waits for Phase 1, then foundation models → VLMs on Derm7pt → HAM/DDI
 - [x] Foundation models: 5/5 done (zero-shot + probes; probe predictions saved; paired site gap computed)
-- [ ] **Running:** Phase 1b VLMs. Derm7pt done; HAM yes/no done; HAM shuffled running (310/1502, 22:32); then DDI, HAM site test. ETA ~12:00 on 2026-10-17. Log: `results/logs/phase1b.log`
+- [x] Phase 1b VLM runs: 23/23 jobs done, 0 failures (finished 2026-10-17 12:27)
+- [x] VLM diagnostic summary across all sets ([experiments/vlm_summary.py](experiments/vlm_summary.py) → `results/vlm_summary.csv`)
 
 ## Phase 2: Faithfulness pilot
 
@@ -84,7 +85,7 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 22:32. The 
 - [~] External tests
   - [x] Download + verify BCN20000 (12,413 labelled) and PAD-UFES-20 (2,298); `splits/external.csv` + 400 px caches ([scripts/prepare_external.py](scripts/prepare_external.py))
   - [x] Eval code: [experiments/external_eval.py](experiments/external_eval.py) (9 fine-tuned checkpoints) + external sets in foundation_eval.py
-  - [ ] **Queued:** run both after the last VLM job
+  - [ ] **Running:** started 12:32 (fine-tuned first, then 5 foundation models)
   - [ ] Dedup BCN20000 vs HAM10000
 
 ## Phase 4: Write-up
