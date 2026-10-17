@@ -53,6 +53,14 @@ def image_sets(limit):
     ddi = pd.read_csv(ROOT / "splits/ddi.csv")
     sets["ddi/all"] = ([PROC / p for p in ddi.img], ddi.malignant.astype(int).values, ddi.DDI_ID.values,
                        ["benign", "malignant"], CLINICAL)
+    ext_csv = ROOT / "splits/external.csv"
+    if ext_csv.exists():  # external tests (images whose class exists in HAM10000)
+        ext = pd.read_csv(ext_csv)
+        ext = ext[ext.dx.notna()]
+        for ds, tmpl in [("bcn20000", DERMOSCOPIC), ("pad_ufes20", CLINICAL)]:
+            e = ext[ext.dataset == ds]
+            sets[f"{ds}/all"] = ([PROC / p for p in e.img], np.array([CLASSES_7.index(d) for d in e.dx]),
+                                 e.group.values, CLASSES_7, tmpl)
     if limit:
         rng = np.random.default_rng(0)
         pick = {k: np.sort(rng.permutation(len(v[1]))[:limit]) for k, v in sets.items()}
@@ -126,8 +134,8 @@ def main():
         m = classes.index("mel")
         thr = metrics.threshold_at_spec((va[1] == m).astype(int), pv[:, m])
         tests = [k for k in sets if k.startswith(f"{task}/test")]
-        if task == "random":
-            tests.append("derm7pt/test")  # cross-dataset: HAM-trained probe on Derm7pt dermoscopy
+        if task == "random":  # cross-dataset: HAM-trained probe on Derm7pt and the external sets
+            tests += [k for k in ("derm7pt/test", "bcn20000/all", "pad_ufes20/all") if k in sets]
         for k in tests:
             p = proba(clf, feats[k], len(classes))
             if k.startswith(task):  # HAM site/random test sets: save for the paired site-gap analysis

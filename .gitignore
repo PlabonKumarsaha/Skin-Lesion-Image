@@ -31,3 +31,4 @@ results/**/*derm7pt*.jsonl
 
 # unpublished proposal drafts (keep private until submission)
 docs/*.docx
+!results/fairness_ddi.csv

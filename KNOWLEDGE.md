@@ -108,6 +108,15 @@ Last updated: 2026-10-15.
 - **Early signal for H4:** Erythema is labelled far less on FST V–VI (40) than I–II (105). This is a known visibility problem on darker skin and makes erythema a key concept for the faithfulness-by-skin-tone test.
 - **Relevance:** these concepts are clinical (papule, plaque), not dermoscopic. Derm7pt stays the core of E2. SkinCon-DDI would let us test whether faithfulness drops on darker skin (H4).
 
+### External test sets (downloaded 2026-10-17, checksums verified)
+
+| Dataset | Source / licence | Images | Melanoma | Malignant | Notes |
+|---|---|---|---|---|---|
+| BCN20000 (labelled "train" split) | figshare 24140028, CC BY 4.0 | 12,413 dermoscopic | 2,857 | 6,097 | Barcelona; official test split has no labels. Includes 431 SCC (no HAM class) |
+| PAD-UFES-20 | Mendeley zr7vgbcyr2, CC BY 4.0 | 2,298 smartphone clinical | **52** | 1,089 | Brazil; modality shift; use malignant AUROC as the primary metric |
+
+Mapping to HAM classes: AK/ACK→akiec, BKL/SEK→bkl, NV/NEV→nv; SCC has no HAM class (counts for malignant only). Table: `splits/external.csv` (shareable, CC BY 4.0).
+
 ### Splits (seed 42, lesion-level, leakage-checked)
 
 - `splits/random.csv`: 7-class. Lesion counts: train 5,229 / val 1,120 / test 1,121 (images 6,981 / 1,532 / 1,502).

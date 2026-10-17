@@ -81,7 +81,11 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 22:32. The 
   - [ ] Concept detection by skin tone (SkinCon-DDI concepts, e.g. erythema) for image-text models
   - [ ] HAM/BCN subgroups by age, sex, body site
 - [ ] E5 triage metrics (calibration, deferral, decision curves)
-- [~] External tests: PAD-UFES-20 (CC BY 4.0) and BCN20000 labelled split (12,413 images, CC BY 4.0) downloading; then dedup vs HAM and evaluate
+- [~] External tests
+  - [x] Download + verify BCN20000 (12,413 labelled) and PAD-UFES-20 (2,298); `splits/external.csv` + 400 px caches ([scripts/prepare_external.py](scripts/prepare_external.py))
+  - [x] Eval code: [experiments/external_eval.py](experiments/external_eval.py) (9 fine-tuned checkpoints) + external sets in foundation_eval.py
+  - [ ] **Queued:** run both after the last VLM job
+  - [ ] Dedup BCN20000 vs HAM10000
 
 ## Phase 4: Write-up
 
