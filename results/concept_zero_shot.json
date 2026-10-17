@@ -1,0 +1,42 @@
+{
+  "monet": {
+    "atypical_pigment_network": 0.5315631628995684,
+    "blue_whitish_veil_present": 0.8441452991452991,
+    "atypical_vascular": 0.6906342182890854,
+    "irregular_streaks": 0.607442888725129,
+    "irregular_pigmentation": 0.752309682187731,
+    "irregular_dots_globules": 0.6884366576819407,
+    "regression_present": 0.6206413236701764,
+    "macro_auroc": 0.6764533189427043
+  },
+  "dermlip_vitb16": {
+    "atypical_pigment_network": 0.6248628483651525,
+    "blue_whitish_veil_present": 0.8255555555555556,
+    "atypical_vascular": 0.798180924287119,
+    "irregular_streaks": 0.6723655121591746,
+    "irregular_pigmentation": 0.6425535846267554,
+    "irregular_dots_globules": 0.6768733153638814,
+    "regression_present": 0.7141733898536853,
+    "macro_auroc": 0.7077950186016176
+  },
+  "dermlip_panderm": {
+    "atypical_pigment_network": 0.6454173067076292,
+    "blue_whitish_veil_present": 0.7682051282051282,
+    "atypical_vascular": 0.6650073746312686,
+    "irregular_streaks": 0.6313190862196021,
+    "irregular_pigmentation": 0.6602919438285291,
+    "irregular_dots_globules": 0.614123989218329,
+    "regression_present": 0.5196567756050869,
+    "macro_auroc": 0.6434316577736533
+  },
+  "biomedclip": {
+    "atypical_pigment_network": 0.6394192085436324,
+    "blue_whitish_veil_present": 0.823974358974359,
+    "atypical_vascular": 0.46816617502458213,
+    "irregular_streaks": 0.6993367722918202,
+    "irregular_pigmentation": 0.6119425966986943,
+    "irregular_dots_globules": 0.6988140161725067,
+    "regression_present": 0.6889101599890606,
+    "macro_auroc": 0.6615090410992366
+  }
+}

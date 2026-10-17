@@ -1,6 +1,6 @@
 # Task List
 
-Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 15:30. The full plan is in the proposal doc (link in [SUMMARY.md](SUMMARY.md)).
+Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 22:32. The full plan is in the proposal doc (link in [SUMMARY.md](SUMMARY.md)).
 
 ## Phase 0: Data foundation
 
@@ -55,7 +55,7 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 15:30. The 
 - [x] VLM prompt controls: `shuffled` variant (option order shuffled + "uncertain") and `yesno` variant (melanoma score = P(yes) from token log-probs)
 - [x] Phase 1b runner ([experiments/run_phase1b.py](experiments/run_phase1b.py)): waits for Phase 1, then foundation models → VLMs on Derm7pt → HAM/DDI
 - [x] Foundation models: 5/5 done (zero-shot + probes; probe predictions saved; paired site gap computed)
-- [ ] **Running:** Phase 1b (started 15:22, 2026-10-16; foundation models ~1 h, then ~15 h of VLM inference, Derm7pt first). Log: `results/logs/phase1b.log`
+- [ ] **Running:** Phase 1b VLMs. Derm7pt done; HAM yes/no done; HAM shuffled running (310/1502, 22:32); then DDI, HAM site test. ETA ~12:00 on 2026-10-17. Log: `results/logs/phase1b.log`
 
 ## Phase 2: Faithfulness pilot
 
@@ -64,8 +64,8 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 15:30. The 
 - [x] Concept mapping: not needed for the pilot, since the JSON schema uses Derm7pt's own vocabulary ([experiments/faithfulness.py](experiments/faithfulness.py)). Free-text rationales still to be scored later
 - [x] Concept precision/recall, self-consistency, cross-format agreement and templating on Derm7pt test (395 cases) for Qwen2.5-VL-7B + MedGemma 1.5 → `results/faithfulness_derm7pt.csv`
 - [x] **Gate passed:** self-consistency 0.89–1.00 but concept F1 0.39–0.47 ("consistent but unfaithful"); Qwen is templated (3.8% distinct answers, AUROC 0.51)
-- [ ] Baselines for E2: prevalence ("always cite") and MONET/DermLIP concept scores on the same 7 criteria
-- [ ] Bootstrap CIs for the faithfulness metrics
+- [x] Baselines for E2: "always cite all" (concept F1 0.404, so Qwen is no better) and zero-shot concept AUROC from image-text models ([experiments/concept_zero_shot.py](experiments/concept_zero_shot.py)): DermLIP-B/16 0.708 > MONET 0.676 > BiomedCLIP 0.662 > DermLIP-PanDerm 0.643, vs MedGemma 0.63 / Qwen 0.52–0.55
+- [x] Bootstrap CIs for the faithfulness metrics (1,000 case resamples)
 - [ ] Counterfactual test (mask the cited region, re-query)
 
 ## Phase 3: Full runs

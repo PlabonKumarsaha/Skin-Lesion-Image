@@ -70,6 +70,8 @@ def json_metrics(df, gt):
         p, r, f1 = prf(cited, d[flag].values.astype(bool))
         out[f"{flag}_precision"], out[f"{flag}_recall"], out[f"{flag}_f1"] = p, r, f1
         out[f"{flag}_cited_rate"] = cited.mean()
+        t = d[flag].values.astype(bool)  # balanced accuracy = AUROC of a binary citation, comparable to CLIP concept AUROC
+        out[f"{flag}_auroc"] = (cited[t].mean() + (~cited[~t]).mean()) / 2 if 0 < t.sum() < len(t) else np.nan
         score += w * cited
     for col in FEATURES:
         val = feats.apply(lambda f: str(f.get(col, "")).lower())
@@ -77,14 +79,45 @@ def json_metrics(df, gt):
         known = val != "uncertain"
         out[f"{col}_kappa"] = cohen_kappa_score(d[col].str.lower()[known], val[known]) if known.sum() > 10 else np.nan
     out["concept_macro_f1"] = np.nanmean([out[f"{k}_f1"] for k in CHECKLIST])
+    out["concept_macro_auroc"] = np.nanmean([out[f"{k}_auroc"] for k in CHECKLIST])
     out["self_consistency"] = ((score >= 3) == said_mel).mean()
     out["distinct_feature_vectors"] = feats.apply(lambda f: json.dumps(f, sort_keys=True)).nunique() / max(len(d), 1)
     return out, pd.Series(said_mel, index=d.case_num)
 
 
+HEADLINE = ["mel_auroc_stated", "concept_macro_f1", "concept_macro_auroc", "self_consistency"]
+
+
+def bootstrap(df, gt, n=1000, seed=0):
+    """95% CIs for the headline metrics, resampling cases."""
+    rng = np.random.default_rng(seed)
+    keys = df.case_num.unique()
+    draws = []
+    for _ in range(n):
+        pick = pd.DataFrame({"case_num": rng.choice(keys, len(keys))})
+        d = pick.merge(df, on="case_num")
+        m, _ = json_metrics(d, gt)
+        draws.append([m[k] for k in HEADLINE])
+    lo, hi = np.nanpercentile(np.array(draws, float), [2.5, 97.5], axis=0)
+    return {f"{k}_ci": f"[{a:.3f}, {b:.3f}]" for k, a, b in zip(HEADLINE, lo, hi)}
+
+
+def baselines(gt):
+    """Answer-free reference points: cite every criterion on every image / cite none."""
+    rows = []
+    for name, cite in [("always_cite_all", True), ("never_cite", False)]:
+        r = {"model": f"baseline:{name}", "variant": "-", "n": len(gt)}
+        for flag in CHECKLIST:
+            pred = np.full(len(gt), cite)
+            r[f"{flag}_precision"], r[f"{flag}_recall"], r[f"{flag}_f1"] = prf(pred, gt[flag].values.astype(bool))
+        r["concept_macro_f1"] = np.nanmean([r[f"{k}_f1"] for k in CHECKLIST]) if cite else 0.0
+        rows.append(r)
+    return rows
+
+
 def main():
     gt = pd.read_csv(ROOT / "splits/derm7pt.csv").query("split == 'test'")
-    rows, said = [], {}
+    rows, said = baselines(gt), {}
     for model in sorted(p.name for p in VLM.iterdir() if p.is_dir()):
         for variant in ["schema", "shuffled"]:
             df = load(model, variant)
@@ -92,7 +125,7 @@ def main():
                 continue
             m, s = json_metrics(df, gt)
             said[(model, variant)] = s
-            rows.append({"model": model, "variant": variant} | m)
+            rows.append({"model": model, "variant": variant} | m | bootstrap(df, gt))
         y = load(model, "yesno")
         if y is not None and len(y) >= 20:
             d = y.merge(gt, on="case_num")
@@ -107,8 +140,9 @@ def main():
     res = pd.DataFrame(rows)
     out = ROOT / "results/faithfulness_derm7pt.csv"
     res.to_csv(out, index=False)
-    cols = ["model", "variant", "n", "parse_rate", "mel_auroc_stated", "mel_recall", "mel_specificity",
-            "concept_macro_f1", "self_consistency", "distinct_feature_vectors", "cross_format_agreement"]
+    cols = ["model", "variant", "n", "mel_auroc_stated", "mel_auroc_stated_ci", "mel_recall", "mel_specificity",
+            "concept_macro_f1", "concept_macro_f1_ci", "concept_macro_auroc", "concept_macro_auroc_ci", "self_consistency", "self_consistency_ci",
+            "distinct_feature_vectors", "cross_format_agreement"]
     with pd.option_context("display.width", 200, "display.float_format", "{:.3f}".format):
         print(res[[c for c in cols if c in res]].to_string(index=False))
         flags = [f"{k}_{m}" for k in CHECKLIST for m in ("precision", "recall")]

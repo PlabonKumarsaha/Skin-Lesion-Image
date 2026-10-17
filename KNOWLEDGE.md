@@ -11,7 +11,7 @@ Last updated: 2026-10-15.
 | Workflow | **Code first**, then use the benchmark results to improve the proposal. |
 | First experiments | Start with **CNN / ViT baselines**, before any VLM. |
 | Dataset version | Use the **latest** HAM10000 release. |
-| Git | Commit and push to GitHub when a phase's code is done. Repo `PlabonKumarsaha/Skin-Lesion-Image` (public). (2026-10-16) |
+| Git | Commit and push to GitHub after **each stage** (2026-10-17), not only each phase. Repo `PlabonKumarsaha/Skin-Lesion-Image` (public). (2026-10-16) |
 | Models | **Open, free models only. No commercial/closed APIs** (GPT, Gemini, Claude): this is an academic paper. (2026-10-16) |
 
 ### Original proposal (your draft, summarised)
@@ -152,6 +152,7 @@ The Queensland test set has only **54 melanoma images**, so expect wide CIs (rou
 - **DermLIP-PanDerm loading:** via the Derm1M fork in `third_party/Derm1M/src` (loaded only in its own process). Local patches: (1) skip the separate PanDerm init file, since the HF checkpoint has the full weights; (2) `tokenizer.py:441` uses `tokenizer(...)` because `batch_encode_plus` was removed in transformers 5. Also needs `setuptools<80` (pkg_resources).
 - **Contamination flag:** DermLIP-PanDerm zero-shot reaches 0.89 melanoma AUROC on the Derm7pt smoke set. Check whether Derm1M's "two public datasets" include Derm7pt or HAM10000 (E3).
 - **VLMs:** 4-bit MLX builds (`mlx-community/Qwen2.5-VL-7B-Instruct-4bit`, `mlx-community/medgemma-1.5-4b-it-4bit`). State the quantisation in the paper. ~15–20 s/image for JSON answers, ~2 s for yes/no (while training shares the GPU). LLaVA-Med postponed (no MLX build).
+- **Derm1M training sources (paper, arXiv 2503.14911):** "two public datasets including SCIN and MSKCC", plus YouTube, forums, PubMed (566k articles) and educational material. HAM10000, Fitzpatrick17k and PAD-UFES-20 are used only for evaluation; DDI and BCN20000 are not mentioned. **No deduplication against evaluation sets is reported.** MSKCC is ISIC-hosted, and PubMed figures may reproduce HAM10000/Derm7pt images, so near-duplicate checks are still needed (E3).
 - **Secrets:** HF login is stored in `~/.cache/huggingface/` (outside the repo). `.git/hooks/pre-commit` blocks commits containing token-like strings.
 
 ## 5. Open questions
