@@ -71,7 +71,11 @@ Tick items as they're done (`[~]` = partly done). Updated 2026-10-16 22:32. The 
 ## Phase 3: Full runs
 
 - [ ] All models, all seeds
-- [ ] E3 contamination audit (pHash + DINOv2 nearest-neighbour)
+- [~] E3 contamination audit
+  - [x] Documentation audit: Derm1M = SCIN + MSKCC + YouTube/PubMed/edu/forums; PanDerm = mostly Australian/NZ clinics + ISIC2024. Neither reports deduplication against evaluation sets
+  - [x] Own-dataset near-duplicates ([experiments/dedup_audit.py](experiments/dedup_audit.py)): pHash unreliable for dermoscopy, so DermLIP cosine ≥ 0.98 (visually calibrated). HAM: 29 cross-lesion-ID duplicate pairs, 10 test images (0.7%) leak across splits, ΔAUROC ≤ 0.0004 when removed. DDI: 5 internal duplicate pairs. Derm7pt↔HAM: none
+  - [ ] **(You)** Accept the Derm1M dataset terms on HF; then download public/pubmed/edu (~11.6 GB) and search for copies of HAM/Derm7pt test images
+  - [ ] Ask a clinician (or you) to confirm the 34 flagged pairs (`results/dedup_pairs.csv`, score ≥ 0.98)
 - [ ] E4 subgroup / fairness (DDI, SkinCon, age/sex/site)
 - [ ] E5 triage metrics (calibration, deferral, decision curves)
 - [ ] External tests: PAD-UFES-20, BCN20000 (deduplicated)

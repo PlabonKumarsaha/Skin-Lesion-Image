@@ -1,0 +1,52 @@
+{
+  "thresholds": {
+    "phash_hamming_max": 6,
+    "embed_cosine_min": 0.98
+  },
+  "images": {
+    "ham": 10015,
+    "derm7pt_derm": 1011,
+    "derm7pt_clinic": 1011,
+    "ddi": 656
+  },
+  "pairs_by_kind_and_signal": [
+    {
+      "kind": "ddi-ddi",
+      "signal": "embed",
+      "n": 5
+    },
+    {
+      "kind": "ddi-ddi",
+      "signal": "phash",
+      "n": 4
+    },
+    {
+      "kind": "ddi-ham",
+      "signal": "phash",
+      "n": 7
+    },
+    {
+      "kind": "derm7pt-derm7pt",
+      "signal": "phash",
+      "n": 32
+    },
+    {
+      "kind": "derm7pt-ham",
+      "signal": "phash",
+      "n": 123
+    },
+    {
+      "kind": "ham-ham",
+      "signal": "embed",
+      "n": 29
+    },
+    {
+      "kind": "ham-ham",
+      "signal": "phash",
+      "n": 1530
+    }
+  ],
+  "ham_cross_lesion_pairs_across_splits_embed": 14,
+  "ham_cross_lesion_pairs_test_involved": 10,
+  "ham_test_images_with_cross_split_duplicate": 10
+}
